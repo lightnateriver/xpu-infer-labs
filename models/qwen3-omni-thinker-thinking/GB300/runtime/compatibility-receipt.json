@@ -1,0 +1,15 @@
+{
+  "base_version": "0.31.0",
+  "source_sha256": "aeaacea2bc096e3eb56c85438e41da2320351bac3074051668f811e05c1b3a0d",
+  "patched_sha256": "6538c444ddd22a7c45187458c56bf0b0ce6cc4274f67611572923b1c8e161ebc",
+  "changes": "Preserve modality on the main-scale Tensor after torch.split; no numeric tensor transformations",
+  "upstream_issue": "https://github.com/vllm-project/vllm/issues/53700",
+  "upstream_regression_test": "https://github.com/vllm-project/vllm/pull/53708",
+  "before_weight_audit_sha256": "6ce34ef497ff2d5cc25f9f3d5c216a37db0221d3e969023a5552fdbc46473a24",
+  "weight_audit": "one-shot parameter metadata hook after loader quantization, removed before first forward; no tensor transformations",
+  "audit_process_scope": "PID namespace inode and init process start ticks; prevents cross-container stale counters",
+  "native_v2_graph_audit": "install metadata-only CudaGraphManager and BreakableCUDAGraphCapture call counters at first forward, before graph capture",
+  "graph_audit_helper_sha256": "24f22aae0c3e481a827f48debae3f79184c00153b33a270dd9ed30b58ef44e0b",
+  "before_nvfp4_audit_sha256": "a75b401e9c9757cc243de30d5ef6b3e123749689b5a3d77436df7a444c4433ec",
+  "nvfp4_weight_audit": "At first forward, require Nvfp4OnlineMoEMethod plus uint8 packed expert weights, float8 group scales and FP32 global scales; metadata only"
+}

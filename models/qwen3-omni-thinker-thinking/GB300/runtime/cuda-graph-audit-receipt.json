@@ -1,0 +1,5 @@
+{
+  "source_sha256": "e09f694f4f50cda891b2db09d48993a9248f5a1318795b3798cd5478c268ca84",
+  "patched_sha256": "5a29048cb9de87c923d9392b95394ce8e7f1e5089e7b2d71dacce4b2ffe4cb67",
+  "description": "Counters immediately after successful capture/replay calls and at explicit wrapper fallback branches; shared-memory writes only; no CUDA sync"
+}

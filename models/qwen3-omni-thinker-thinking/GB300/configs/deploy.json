@@ -1,0 +1,40 @@
+{
+  "model": "Qwen/Qwen3-Omni-30B-A3B-Thinking",
+  "vllm_version": "0.31.0",
+  "architecture": "aarch64",
+  "image_id": "sha256:bbe7045055707d1027079ed01cca40812578a235c56032d85c16108ad473384c",
+  "tp": 1,
+  "max_num_seqs": 56,
+  "max_num_batched_tokens": 65536,
+  "max_model_len": 65536,
+  "kv_cache_memory_bytes": 137438953472,
+  "kv_cache_dtype": "fp8",
+  "resolved_kv_dtype": "torch.float8_e4m3fn",
+  "kv_cache_tokens": 2796192,
+  "quantization": "nvfp4_per_token",
+  "quantization_ignore": [
+    "*mlp.gate",
+    "*lm_head",
+    "*visual*",
+    "*audio_tower*"
+  ],
+  "compilation": {
+    "mode": 3,
+    "cudagraph_mode": "FULL_DECODE_ONLY",
+    "cudagraph_capture_sizes": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32,
+      56
+    ],
+    "max_cudagraph_capture_size": 56,
+    "custom_ops": [
+      "+rotary_embedding"
+    ]
+  },
+  "async_scheduling": false,
+  "max_output_tokens": 40960
+}
