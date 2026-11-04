@@ -1,0 +1,49 @@
+{
+  "os": "Ubuntu 22.04.5 LTS",
+  "architecture": "x86_64",
+  "glibc": "2.35",
+  "python": "3.12.16",
+  "gpu": {
+    "model": "NVIDIA GeForce RTX 5090",
+    "compute_capability": "12.0",
+    "memory_mib_per_gpu": 32607,
+    "driver": "580.126.09"
+  },
+  "vllm": {
+    "version": "0.32.0",
+    "commit": "5df63a7203cdb9328d824a27b682e77c7b9928be",
+    "wheel": "https://wheels.vllm.ai/5df63a7203cdb9328d824a27b682e77c7b9928be/vllm-0.32.0-cp38-abi3-manylinux_2_28_x86_64.whl"
+  },
+  "vllm_omni": {
+    "tag": "v0.32.0",
+    "commit": "5917730a4b02aedb44d374173cdc1b10484ccd52",
+    "version": "0.32.0",
+    "source_archive_sha256": "759bf03190f82d402e82c380586da27a1966ec264532c517d04dc7a13104c3da"
+  },
+  "toolchain": {
+    "pytorch_cuda": "13.0",
+    "nvcc": "13.4.92",
+    "ffmpeg": "4.4.2",
+    "git": "2.34.1"
+  },
+  "python_packages": {
+    "torch": "2.13.0+cu130",
+    "torchvision": "0.28.0+cu130",
+    "torchaudio": "2.11.0+cu130",
+    "torchcodec": "0.17.0+cu130",
+    "triton": "3.7.1",
+    "flashinfer-python": "0.7.2.post1",
+    "nvidia-cudnn-cu13": "9.20.0.48",
+    "nvidia-cudnn-frontend": "1.32.1",
+    "nvidia-nccl-cu13": "2.29.7",
+    "nvidia-cutlass-dsl": "4.8.0",
+    "transformers": "5.19.0",
+    "diffusers": "0.40.0",
+    "accelerate": "1.12.0",
+    "av": "19.0.2",
+    "pillow": "13.0.0",
+    "numpy": "2.3.5",
+    "safetensors": "0.8.0",
+    "tokenizers": "0.23.3"
+  }
+}

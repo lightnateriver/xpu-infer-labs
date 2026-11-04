@@ -1,0 +1,16 @@
+{
+  "v1-sp8": {
+    "vllm_omni/diffusion/models/minimax_h3/minimax_h3_transformer.py": "c875e3ecce468791e31ac1e07d125f7c4b04c14e2d3d7d0fb949a90e6d0764cb",
+    "vllm_omni/diffusion/models/minimax_h3/pipeline_minimax_h3.py": "9905ae1b98d2acbebd45c985852a33d9620870d4072c52b03a5d37c40591722a",
+    "vllm_omni/diffusion/models/minimax_h3/v2_dense_attention.py": "9eedca9cf5ab8b6146a9b38106b9f33db056386cb93a337ee94ee31d87edf980",
+    "vllm_omni/diffusion/models/minimax_h3/v2_fp8_transport.py": "1b69f10ece4085bbe8e562e270ed73c7119e2191176556236cdfd6c330018b18",
+    "vllm_omni/diffusion/models/minimax_h3/v2_sparse_attention.py": "1c4612e33e1cd9f226e39231318bf049e86e1c02ad61bbca575f4d5649325b71"
+  },
+  "sp4-alternate": {
+    "vllm_omni/diffusion/models/minimax_h3/minimax_h3_transformer.py": "4fe380409cd883c8d58e0879cc8ed8dc61100b60abbe822a1c2c450e21ea0008",
+    "vllm_omni/diffusion/models/minimax_h3/pipeline_minimax_h3.py": "a73fff2d4a9f98c91f3858092ec18e93a2f928a2b50626e1d0901774472f7184",
+    "vllm_omni/diffusion/models/minimax_h3/v2_dense_attention.py": "0688c53b8d620d40ae41b0dd2b61d3d6def16b2465fed53acfe812b0ce795f0c",
+    "vllm_omni/diffusion/models/minimax_h3/v2_fp8_transport.py": "d86c51dd30505fe339809785f7c8a1401d1b135d4ff3c9b9b6ada3c12070a500",
+    "vllm_omni/diffusion/models/minimax_h3/v2_sparse_attention.py": "1c4612e33e1cd9f226e39231318bf049e86e1c02ad61bbca575f4d5649325b71"
+  }
+}

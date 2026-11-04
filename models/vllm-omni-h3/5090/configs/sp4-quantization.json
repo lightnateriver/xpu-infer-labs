@@ -1,0 +1,7 @@
+{
+  "transformer": {
+    "method": "fp8",
+    "ignored_layers": ["re:^(?!blocks\\.\\d+\\.(?:attn\\.(?:qkv_proj|q_proj|k_proj|v_proj|out_proj)|mlp\\.(?:fc1|fc2|gate_proj|up_proj))$).*"]
+  },
+  "text_encoder": {"method": "fp8"}
+}

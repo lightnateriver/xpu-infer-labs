@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MiniMax-H3 · RTX 5090 性能记录</title>
+<style>
+:root { color-scheme: light; }
+body { margin: 0; background: #f2f6f4; color: #172825; font: 16px/1.55 system-ui, sans-serif; }
+main { max-width: 1100px; margin: auto; padding: 2rem 1rem; }
+h1 { margin-bottom: .25rem; }
+p { max-width: 80ch; }
+a { color: #075b4a; }
+.scroll { overflow: auto; border: 1px solid #d6e2de; border-radius: .5rem; background: white; }
+table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+th, td { padding: .5rem .65rem; text-align: left; border-bottom: 1px solid #d6e2de; white-space: nowrap; }
+thead { background: #dcece7; }
+tbody tr:nth-child(even) { background: #f6faf8; }
+</style>
+</head>
+<body><main>
+<h1>MiniMax-H3 · RTX 5090 性能记录</h1>
+<p>vLLM-Omni v0.32.0 · 1344×768 · 24 fps · 历史实测。所有记录为单次同步 HTTP 请求至完整 MP4 收完。</p>
+<p><a href="../readme.md">复现配方与开关</a> · <a href="measurements.json">逐样本 JSON</a> · <a href="../environment/observed.json">版本清单</a></p>
+<h2>运行路径</h2>
+<div class="scroll"><table>
+<thead><tr><th>配置</th><th>DiT Linear</th><th>Dense Attention</th><th>SP 通信</th><th>DiT 显存</th><th>VAE</th></tr></thead>
+<tbody>
+<tr><td>v1-sp8 · 精度 OK</td><td>FP8 W8A8</td><td>BF16 cuDNN</td><td>BF16 双向</td><td>50 主层常驻</td><td>8 卡切片</td></tr>
+<tr><td>sp4-alternate · 精度备选</td><td>FP8 W8A8</td><td>NVFP4 FlashInfer</td><td>FP8 双向，4+4+4+2 重叠</td><td>50 主层常驻</td><td>4 卡切片</td></tr>
+<tr><td>native-bf16-tp8</td><td>BF16</td><td>BF16 cuDNN</td><td>TP8 路径</td><td>Eager</td><td>8 卡切片</td></tr>
+</tbody></table></div>
+<h2>逐请求数据</h2>
+<p>I2VA 的两种框架分别按 A 50、A 20、B 50、B 20 步提交 5 秒请求。15 秒 I2VA 独立启动，20 步。T2VA 预热与正式请求分开列出。不同请求顺序可能包含不同的首次执行开销。</p>
+<div class="scroll"><table>
+<thead><tr><th>输入编号</th><th>配置</th><th>GPU 数</th><th>目标秒数</th><th>帧数</th><th>步数</th><th>请求顺序</th><th>阶段</th><th>E2E 秒</th><th>峰值预留 MiB</th></tr></thead>
+<tbody><tr><td>i2va-a</td><td>v1-sp8</td><td>8</td><td>5</td><td>124</td><td>50</td><td>1</td><td>single</td><td>157.262</td><td>23048</td></tr>
+<tr><td>i2va-a</td><td>v1-sp8</td><td>8</td><td>5</td><td>124</td><td>20</td><td>2</td><td>single</td><td>62.575</td><td>23112</td></tr>
+<tr><td>i2va-a</td><td>native-bf16-tp8</td><td>8</td><td>5</td><td>124</td><td>50</td><td>1</td><td>single</td><td>450.666</td><td>27968</td></tr>
+<tr><td>i2va-a</td><td>native-bf16-tp8</td><td>8</td><td>5</td><td>124</td><td>20</td><td>2</td><td>single</td><td>180.394</td><td>28010</td></tr>
+<tr><td>i2va-b</td><td>v1-sp8</td><td>8</td><td>5</td><td>124</td><td>50</td><td>3</td><td>single</td><td>146.018</td><td>23092</td></tr>
+<tr><td>i2va-b</td><td>v1-sp8</td><td>8</td><td>5</td><td>124</td><td>20</td><td>4</td><td>single</td><td>62.926</td><td>23092</td></tr>
+<tr><td>i2va-b</td><td>native-bf16-tp8</td><td>8</td><td>5</td><td>124</td><td>50</td><td>3</td><td>single</td><td>443.978</td><td>28368</td></tr>
+<tr><td>i2va-b</td><td>native-bf16-tp8</td><td>8</td><td>5</td><td>124</td><td>20</td><td>4</td><td>single</td><td>180.513</td><td>27564</td></tr>
+<tr><td>i2va-b</td><td>v1-sp8</td><td>8</td><td>15</td><td>362</td><td>20</td><td>1</td><td>single</td><td>323.036</td><td>25966</td></tr>
+<tr><td>t2va-a</td><td>v1-sp8</td><td>8</td><td>5</td><td>124</td><td>50</td><td>1</td><td>warmup</td><td>157.243</td><td>23146</td></tr>
+<tr><td>t2va-a</td><td>v1-sp8</td><td>8</td><td>5</td><td>124</td><td>50</td><td>2</td><td>formal</td><td>139.817</td><td>22816</td></tr>
+<tr><td>t2va-a</td><td>v1-sp8</td><td>8</td><td>5</td><td>124</td><td>50</td><td>3</td><td>formal</td><td>139.665</td><td>22818</td></tr>
+<tr><td>t2va-a</td><td>v1-sp8</td><td>8</td><td>5</td><td>124</td><td>20</td><td>1</td><td>warmup</td><td>71.623</td><td>23062</td></tr>
+<tr><td>t2va-a</td><td>v1-sp8</td><td>8</td><td>5</td><td>124</td><td>20</td><td>2</td><td>formal</td><td>59.317</td><td>22732</td></tr>
+<tr><td>t2va-a</td><td>v1-sp8</td><td>8</td><td>5</td><td>124</td><td>20</td><td>3</td><td>formal</td><td>59.398</td><td>22734</td></tr>
+<tr><td>t2va-a</td><td>sp4-alternate</td><td>4</td><td>5</td><td>124</td><td>50</td><td>1</td><td>warmup</td><td>121.366</td><td>29346</td></tr>
+<tr><td>t2va-a</td><td>sp4-alternate</td><td>4</td><td>5</td><td>124</td><td>50</td><td>2</td><td>formal</td><td>112.997</td><td>29950</td></tr></tbody></table></div>
+<p>峰值显存来自服务响应的预留显存指标。画质标签基于历史样例人工观感。公开数据使用匿名输入编号，复测由运行者提供输入。</p>
+</main></body></html>
