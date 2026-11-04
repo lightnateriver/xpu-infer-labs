@@ -1,0 +1,142 @@
+--- a/vllm/model_executor/models/qwen3_omni_moe_thinker.py
++++ b/vllm/model_executor/models/qwen3_omni_moe_thinker.py
+@@ -1219,95 +1219,39 @@
+ class Qwen3OmniMoeThinkerMultiModalProcessor(
+     Qwen2_5OmniThinkerMultiModalProcessor,
+ ):
+-    def _get_hf_mm_data(
+-        self,
+-        mm_items: MultiModalDataItems,
+-    ) -> tuple[Mapping[str, object], Mapping[str, object]]:
++    def _get_hf_mm_data(self, mm_items):
++        # Match the Omni reference frontend: retain video sampling metadata and
++        # let HF define valid audio frames without the native extra truncation.
++        from transformers.video_utils import VideoMetadata
+         processor_data, passthrough_data = super()._get_hf_mm_data(mm_items)
+-
+-        audios = processor_data.get("audios")
+-        if audios:
+-            feature_extractor = self.info.get_feature_extractor()
+-            hop_length = feature_extractor.hop_length
+-
+-            def pad_to_hop_length(x: np.ndarray) -> np.ndarray:
+-                length = x.shape[-1]
+-                if length % hop_length != 0:
+-                    pad_length = hop_length - (length % hop_length)
+-                    x = np.pad(x, (0, pad_length), mode="constant", constant_values=0)
+-                return x
+-
+-            # To make sure the cache works with padding=True, we pre-padded
+-            # the audio to a multiple of hop_length.
+-            processor_data = dict(processor_data)
+-            processor_data["audios"] = [
+-                pad_to_hop_length(audio)
+-                if isinstance(audio, np.ndarray)
+-                else (pad_to_hop_length(audio[0]), audio[1])
+-                for audio in audios
++        processor_data = dict(processor_data)
++        videos = mm_items.get("video")
++        if videos is not None and getattr(videos, "metadata", None):
++            metas = videos.metadata
++            if not isinstance(metas, list):
++                metas = [metas]
++            if any(meta is None for meta in metas):
++                raise ValueError("Aligned video preprocessing requires sampling metadata")
++            processor_data["video_metadata"] = [
++                VideoMetadata(**{k: v for k, v in meta.items() if k != "do_sample_frames"})
++                for meta in metas
+             ]
+-
+         return processor_data, passthrough_data
+ 
+-    def _apply_hf_processor_main(
+-        self,
+-        mm_items: MultiModalDataItems,
+-        hf_processor_mm_kwargs: Mapping[str, object],
+-    ) -> BatchFeature:
+-        if mm_items.get_all_counts().get("audio", 0):
+-            # TODO(Isotr0py): Remove this patch after upstream fix PR
+-            # released and Transformers version update:
+-            # https://github.com/huggingface/transformers/pull/41473
+-            hf_processor_mm_kwargs = dict(hf_processor_mm_kwargs)
+-            hf_processor_mm_kwargs["audio_kwargs"] = dict(
+-                hf_processor_mm_kwargs.get("audio_kwargs") or {}
+-            )
+-            hf_processor_mm_kwargs["text_kwargs"] = dict(
+-                hf_processor_mm_kwargs.get("text_kwargs") or {}
+-            )
+-
+-        processed_data = super()._apply_hf_processor_main(
+-            mm_items,
+-            hf_processor_mm_kwargs,
+-        )
+-
+-        if (
+-            "audio_feature_lengths" in processed_data
+-            and "feature_attention_mask" in processed_data
+-        ):
+-            valid_mm_items = mm_items.select(
+-                {k for k, c in mm_items.get_all_counts().items() if c > 0}
+-            )
+-            processor_data, _ = self._get_hf_mm_data(valid_mm_items)
+-            audios = processor_data.get("audios", [])
+-            if audios:
+-                feature_extractor = self.info.get_feature_extractor(
+-                    **hf_processor_mm_kwargs
+-                )
+-                hop_length = feature_extractor.hop_length
+-
+-                audio_num_frames = []
+-                for audio in audios:
+-                    audio_length = (
+-                        len(audio[0]) if isinstance(audio, tuple) else len(audio)
+-                    )
+-                    num_frame = (
+-                        (audio_length // hop_length)
+-                        if audio_length % hop_length == 0
+-                        else (audio_length // hop_length - 1)
+-                    )
+-                    if hf_processor_mm_kwargs.get("truncation", False):
+-                        num_frame = min(
+-                            num_frame, feature_extractor.n_samples // hop_length
+-                        )
+-                    audio_num_frames.append(num_frame)
+-
+-                processed_data["feature_attention_mask"] = [
+-                    torch.ones(num_frame) for num_frame in audio_num_frames
+-                ]
+-                processed_data["audio_feature_lengths"] = torch.tensor(audio_num_frames)
+-
+-        return processed_data
++    def _apply_hf_processor_main(self, mm_items, hf_processor_mm_kwargs):
++        valid_items = mm_items.select({k: c for k, c in mm_items.get_all_counts().items() if c > 0})
++        data, _ = self._get_hf_mm_data(valid_items)
++        kwargs = dict(hf_processor_mm_kwargs)
++        metas = data.get("video_metadata")
++        if metas:
++            sampled_fps = [len(m.frames_indices) / float(m.duration) for m in metas]
++            if not all(abs(f - sampled_fps[0]) < 1e-9 for f in sampled_fps):
++                raise ValueError("Different sampled FPS in one request are not supported here")
++            kwargs.pop("fps", None)
++            video_kwargs = dict(kwargs.get("videos_kwargs") or {})
++            video_kwargs.update(do_sample_frames=False, fps=sampled_fps[0])
++            kwargs["videos_kwargs"] = video_kwargs
++        return Qwen2_5OmniThinkerMultiModalProcessor._apply_hf_processor_main(self, mm_items, kwargs)
+ 
+     def _maybe_apply_prompt_updates(
+         self,
+@@ -1430,6 +1374,14 @@
+         video_token_id = vocab[video_token]
+ 
+         out_mm_data = out_mm_kwargs.get_data()
++        # Read the same timing metadata later consumed by MRoPE.
++        if out_mm_data.get("second_per_grid_ts") is not None:
++            hf_processor_mm_kwargs = dict(hf_processor_mm_kwargs)
++            ts = out_mm_data["second_per_grid_ts"]
++            hf_processor_mm_kwargs["second_per_grid_ts"] = (
++                ts.flatten().tolist() if hasattr(ts, "flatten") else list(ts)
++            )
++
+         audio_feature_lengths = out_mm_data.get("audio_feature_lengths")
+         feature_attention_mask = out_mm_data.get("feature_attention_mask")
+         if audio_feature_lengths is None and feature_attention_mask is None:

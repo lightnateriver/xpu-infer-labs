@@ -1,0 +1,97 @@
+[
+  {
+    "name": "Qwen3-Omni-30B-A3B-Instruct_best_practice.yaml",
+    "bytes": 997,
+    "sha256": "61d456f7c970367f7bf98c3d24dd943b1186ccd2b2438f1cb159b11866bacc55"
+  },
+  {
+    "name": "chat_template.json",
+    "bytes": 6772,
+    "sha256": "90c1b81f29e41b7642b0cc02c877a10c8bf6751a8d8fa1d16ac9a718cf1c3d86"
+  },
+  {
+    "name": "config.json",
+    "bytes": 13671,
+    "sha256": "eab5093d47807aaf894119506b238b2b1cee70d08456e894fee9a012d88f2e0d"
+  },
+  {
+    "name": "configuration.json",
+    "bytes": 43,
+    "sha256": "a6b66993e9da0feaba8d42d06b21ad9cfaf7d8b591f32fd639ae35b7f5d2d859"
+  },
+  {
+    "name": "generation_config.json",
+    "bytes": 146,
+    "sha256": "7fa40989be8e43c078907810c41c25d33747523afce3d5a34d5850f930c886cb"
+  },
+  {
+    "name": "merges.txt",
+    "bytes": 1671839,
+    "sha256": "599bab54075088774b1733fde865d5bd747cbcc7a547c5bc12610e874e26f5e3"
+  },
+  {
+    "name": "preprocessor_config.json",
+    "bytes": 603,
+    "sha256": "b10e27fd4542cf89ec7145942b87f3e65408d4e9f9d031a29acdd293c15fb3fc"
+  },
+  {
+    "name": "quant_model_description.json",
+    "bytes": 4590750,
+    "sha256": "4de7f0c789a2305207f2338e1ae713caee7357d473d67e68e1393aa3a72180fe"
+  },
+  {
+    "name": "quant_model_weights-00001-of-00008.safetensors",
+    "bytes": 4295103752,
+    "sha256": "4d04b694831a6dad8e3d88f61d4700d1e5bc84fd4f54519eb0186d32c4a85e46"
+  },
+  {
+    "name": "quant_model_weights-00002-of-00008.safetensors",
+    "bytes": 4295704616,
+    "sha256": "31ab6651f86151a5b3077cf817db8f9d0f94248922e791a1f770a5ee3e3ed781"
+  },
+  {
+    "name": "quant_model_weights-00003-of-00008.safetensors",
+    "bytes": 4295722160,
+    "sha256": "a4bc79d15041582112597fc57025700f56956e084fba992fc6ee7e79ca626f3b"
+  },
+  {
+    "name": "quant_model_weights-00004-of-00008.safetensors",
+    "bytes": 4295711912,
+    "sha256": "65716f595fb0dfc0539723e9ba1005d7a26a073f28f9340830efc4676523902d"
+  },
+  {
+    "name": "quant_model_weights-00005-of-00008.safetensors",
+    "bytes": 4295711904,
+    "sha256": "908b1fb44c955c2dcd819b4c9aa9ff06bc9d343e5c38ea5c749595b15a4a619b"
+  },
+  {
+    "name": "quant_model_weights-00006-of-00008.safetensors",
+    "bytes": 4295722136,
+    "sha256": "3bf3aad3ee1c651208b32b27a0b65ac87698f7b547b2156e2815f05cdb6a74d5"
+  },
+  {
+    "name": "quant_model_weights-00007-of-00008.safetensors",
+    "bytes": 4294959336,
+    "sha256": "a159076e80b451ac49457b95ab1585dff22639b28bbdbac7dabe8c1045394f6f"
+  },
+  {
+    "name": "quant_model_weights-00008-of-00008.safetensors",
+    "bytes": 3116226216,
+    "sha256": "fbc096845f82acec12f95175bda04f49d404a333f472667090944aeab0536e6b"
+  },
+  {
+    "name": "quant_model_weights.safetensors.index.json",
+    "bytes": 6546126,
+    "sha256": "e2165ab215f5c99c40a213123c9c397b1e2efda81c7cc803a235ef1ce7eb2a56"
+  },
+  {
+    "name": "tokenizer_config.json",
+    "bytes": 7344,
+    "sha256": "dc3c31c3bdaedd5016382bb3cbe07323026775ad51f5a4fb564505992ae4a670"
+  },
+  {
+    "name": "vocab.json",
+    "bytes": 2776833,
+    "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+  }
+]

@@ -1,0 +1,12 @@
+--- a/vllm/model_executor/models/qwen3_omni_moe_thinker.py
++++ b/vllm/model_executor/models/qwen3_omni_moe_thinker.py
+@@ -1883,6 +1883,9 @@
+                     embeddings_main, embeddings_multiscale = torch.split(
+                         embeddings, [visual_dim, multi_dim], dim=-1
+                     )
++                    # Preserve modality across the DeepStack torch.split views.
++                    from vllm.multimodal.utils import copy_mm_embedding_modality
++                    copy_mm_embedding_modality(embeddings, embeddings_main)
+                     multimodal_embeddings[index] = embeddings_main
+                     multimodal_embeddings_multiscale.append(embeddings_multiscale)
+                     if not is_interleaved:

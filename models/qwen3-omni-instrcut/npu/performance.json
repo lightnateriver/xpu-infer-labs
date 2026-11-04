@@ -1,0 +1,10 @@
+{
+  "hardware": "Ascend 910B3 64 GiB",
+  "cards": 1,
+  "thinking": false,
+  "requests_per_round": 15,
+  "rounds": [
+    {"concurrency": 1, "wall_seconds": 629.001, "p50_e2e_seconds": 39.681, "p50_ttft_seconds": 10.794, "normal_stop": 15, "truncated": 0, "preemptions": 0, "output_tokens": 28102, "direct_json": 0},
+    {"concurrency": 4, "wall_seconds": 304.357, "p50_e2e_seconds": 70.040, "p50_ttft_seconds": 12.658, "normal_stop": 15, "truncated": 0, "preemptions": 0, "output_tokens": 25440, "direct_json": 0}
+  ]
+}
