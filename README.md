@@ -1,16 +1,23 @@
-# gpu-infer-labs
+# xpu-infer-labs
 
-GPU推理优化实验、可移植代码、匿名证据与报告。
+GPU / NPU 推理优化实验、可运行交接代码与匿名验证证据。模型配方按设备归档：
 
-## 当前更新
-
-[Qwen3-Omni Thinking · GB300 · NVFP4 experts＋FP8 KV128GiB](models/qwen3-omni-thinker-thinking/GB300/readme.md)：单卡 TP1/C56，历史一轮 56/56 完整、零截断/失败/抢占，**15.358 条/分钟，吞吐折算 3.907 秒/条**；单请求 HTTP E2E 中位数 **127.39 秒**，含 Thinking。附固定 runtime、可移植启动/测试脚本与匿名指标；发布时未重跑 GPU。
-
-[Qwen3-Omni Thinking · RTX5090 · N3/K3＋多FULL Graph＋KV6.5GiB](models/qwen3-omni-thinker-thinking/5090/native-ngram3-multifull-kv6p5-tp1-c4/readme.md)：TP1/C4，Thinking计入，三轮45/45完整、零抢占，**3.575有效条/分钟**，完整轮输出TPS/卡中位数**310.22**。相对本轮同条件C4基线3.240条/分钟提升10.33%；不是相对历史不同协议的直接增益。
-
-| 模型/硬件 | 最新方案 | 历史方案 |
+| 设备 | 模型 | 入口 |
 |---|---|---|
-| [Qwen3-Omni / GB300](models/qwen3-omni-thinker-thinking/GB300/readme.md) | [NVFP4 experts＋FP8 KV128GiB · TP1/C56](models/qwen3-omni-thinker-thinking/GB300/readme.md) | 单轮历史证据，含 Thinking；3.907 秒是吞吐折算 |
-| [Qwen3-Omni / RTX5090](models/qwen3-omni-thinker-thinking/5090/readme.md) | [多FULL＋KV优化](models/qwen3-omni-thinker-thinking/5090/native-ngram3-multifull-kv6p5-tp1-c4/readme.md) | [原生N3](models/qwen3-omni-thinker-thinking/5090/native-ngram3-async-fp8-tp1-c4/readme.md)、[Omni FP8](models/qwen3-omni-thinker-thinking/5090/async-fp8-gemm-fp8-kv-tp1-c4/readme.md) |
+| GPU · 单卡 RTX 5090 | Qwen3-VL-Embedding-2B | [CPU32 视频嵌入流水线](GPU/Models/qwen3-vl-embedding-2b/README.md) |
+| NPU · 单卡 Ascend 910B1 | Qwen3-VL-Embedding-2B | [稳定单遍版 / NPU-SPG v1](NPU/Models/qwen3-vl-embedding-2b/README.md) |
+| GPU · RTX 5090 / GB300 | Qwen3-Omni Thinking | [模型索引](GPU/Models/qwen3-omni-thinker-thinking/readme.md) |
+| GPU · RTX 5090 | MiniMax-H3 | [V1 SP8 / SP4 交接](GPU/Models/minimax-h3/5090/readme.md) |
+| NPU · Ascend 910B3 | Qwen3-Omni Instruct | [单卡 W8A8](NPU/Models/qwen3-omni-instruct/readme.md) |
 
-每项保留配置、runtime、启动/测试方式、环境、输入合同、匿名证据和独立HTML。有效吞吐、完整轮TPS与精度分别报告；历史输出长度/协议可能不同，不能把跨报告比例当作单项消融或稳定收益。需要自备模型和有权使用的冻结输入；不发布私有业务内容与访问凭证。
+[GPU 索引](GPU/Models/README.md) · [NPU 索引](NPU/Models/README.md) · [目录迁移记录](ARCHIVE.md)
+
+Qwen 视频嵌入交接包含 runtime、配置、环境来源、普通文件/TAR 清单测试、CPU 防错测试与性能/精度报告。
+**同输入余弦 ≥0.99 与旧向量库在 0.99 阈值处的判定一致性是两个门槛。** NPU-SPG v1 是前者下的最快候选，不能据此声称旧库零跨线。
+
+其他模型保留原始历史证据和测试范围，本次目录迁移不代表重新测试了全部模型。
+不发布私有素材、样本标识、原始业务输出、服务器地址或访问凭证。复现者需自备模型和有权使用的冻结输入；匿名汇总不足以重建私有测试集。
+
+## Qwen 视频嵌入本次重测
+
+GPU CPU32 7.065 条/秒，NPU-SPG v1 8.110 条/秒，后者为前者的 **114.79%**。同输入余弦 ≥0.99 通过，旧库 0.99 阈值零跨线未通过；跨架构像素也非字节一致。[完整报告与限制](NPU/Models/qwen3-vl-embedding-2b/reports/retest-20261108.md)。

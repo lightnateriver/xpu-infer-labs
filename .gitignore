@@ -1,0 +1,17 @@
+__pycache__/
+*.pyc
+*.so
+*.npy
+*.npz
+*.safetensors
+*.mp4
+*.mov
+*.wav
+*.tar
+*.tar.gz
+*.zip
+*.log
+.local/
+results/
+compiler-tmp/
+rgb-core-build*.json

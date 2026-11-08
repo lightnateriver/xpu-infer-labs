@@ -1,0 +1,1151 @@
+{
+  "date": "2026-11-08",
+  "state": "complete",
+  "analysis_code_sha256": "c82a4b10b1c0f6920bbec5175c011fadd8ac3908656b33d7ea37d202a07df286",
+  "runs": {
+    "gpu8": {
+      "parameters": {
+        "runtime": "vllm",
+        "engine_mode": "async",
+        "sample_fps": 1.0,
+        "max_frames": 64,
+        "decode_short_side": 320,
+        "dtype": "bfloat16",
+        "frame_transport": "uint8",
+        "batch_clips": 64,
+        "max_num_seqs": 64,
+        "max_num_batched_tokens": 16384,
+        "request_concurrency": 64,
+        "processor_workers": 2,
+        "decode_workers": 8,
+        "decode_threads": 1,
+        "processing_window": 256,
+        "submission_order": "mixed",
+        "max_model_len": 32768,
+        "gpu_memory_utilization": 0.8,
+        "instruction": "Represent the user's input.",
+        "bucket_policy": "continuous-token-budget",
+        "decode_processes": 8,
+        "cpu_threads": 1
+      },
+      "versions": {
+        "torch": "2.10.0",
+        "torchvision": "0.25.0",
+        "vllm": "0.19.0",
+        "transformers": "4.57.6",
+        "qwen-vl-utils": "0.0.14",
+        "av": "17.1.0",
+        "numpy": "2.2.6"
+      },
+      "model_sha256": "c73fa9caeddeb3ff831d46c085a7a5708343248ca777e90f2d486964464509c1",
+      "code_sha256": {
+        "runtime/qwen_embedding/__init__.py": "d09941bd69b11457446b42e3df6b3de1a131518bc27ba76de19ac6033841334d",
+        "runtime/qwen_embedding/types.py": "affecce6cdeee2dd1e25a3cd699e91d36bb411c0e272fb70140a5554b44bfcce",
+        "runtime/qwen_embedding/video.py": "bfbd217f8e2c6978423dd94270961f6defd51e58a5f6de1e1305bae43e0cf96b",
+        "runtime/qwen_embedding/pyav_reader.py": "6265cd5ed29db7f6c127c876c758d44fbd95f110632163d9382f2a9c83ece6fb",
+        "runtime/qwen_embedding/cpu_decode.py": "7fee0db0ef3ae657fbd8ee0662e1b07f8019f56c7ac9052c649cc1242ffd20ba",
+        "scripts/benchmark.py": "61cd49a1259924b38b8b81386bba69b5fd89fcf12b9933589280313bb407e0ef"
+      },
+      "startup_s": 111.41397917899303,
+      "pool_warmup": {
+        "workers": 8,
+        "method": "real clip per worker and process barrier"
+      },
+      "cohorts": [
+        {
+          "name": "screen",
+          "count": 64,
+          "rounds": [
+            {
+              "repeat": 0,
+              "pipeline_s": 20.682858678977937,
+              "clips_s": 3.0943498185311116,
+              "byte_equal_vs_first": true,
+              "same_input_cosine_min": 0.9998460869345536,
+              "vectors_below_099": 0,
+              "fixed_gallery_crossings": 0,
+              "max_pair_score_delta": 0.002601371985385015,
+              "exact_vs_stable_npu": false,
+              "max_abs_vs_stable_npu": 0.007406730204820633,
+              "decision_changes_vs_stable_npu": 8
+            },
+            {
+              "repeat": 1,
+              "pipeline_s": 20.55325854406692,
+              "clips_s": 3.113861476650124,
+              "byte_equal_vs_first": false,
+              "same_input_cosine_min": 0.9998460869345536,
+              "vectors_below_099": 0,
+              "fixed_gallery_crossings": 0,
+              "max_pair_score_delta": 0.002601371985385015,
+              "exact_vs_stable_npu": false,
+              "max_abs_vs_stable_npu": 0.007406730204820633,
+              "decision_changes_vs_stable_npu": 8
+            },
+            {
+              "repeat": 2,
+              "pipeline_s": 20.351459266850725,
+              "clips_s": 3.1447376407177727,
+              "byte_equal_vs_first": true,
+              "same_input_cosine_min": 0.9998460869345536,
+              "vectors_below_099": 0,
+              "fixed_gallery_crossings": 0,
+              "max_pair_score_delta": 0.002601371985385015,
+              "exact_vs_stable_npu": false,
+              "max_abs_vs_stable_npu": 0.007406730204820633,
+              "decision_changes_vs_stable_npu": 8
+            }
+          ],
+          "frozen_contract_equal": true,
+          "median_s": 20.55325854406692,
+          "clips_s": 3.113861476650124
+        },
+        {
+          "name": "holdout",
+          "count": 64,
+          "rounds": [
+            {
+              "repeat": 0,
+              "pipeline_s": 24.988971816841513,
+              "clips_s": 2.5611297843341716,
+              "byte_equal_vs_first": true,
+              "same_input_cosine_min": 0.9999999999999997,
+              "vectors_below_099": 0,
+              "fixed_gallery_crossings": 0,
+              "max_pair_score_delta": 0.0,
+              "exact_vs_stable_npu": false,
+              "max_abs_vs_stable_npu": 0.00799606554210186,
+              "decision_changes_vs_stable_npu": 4
+            },
+            {
+              "repeat": 1,
+              "pipeline_s": 25.695816521998495,
+              "clips_s": 2.4906778091760127,
+              "byte_equal_vs_first": true,
+              "same_input_cosine_min": 0.9999999999999997,
+              "vectors_below_099": 0,
+              "fixed_gallery_crossings": 0,
+              "max_pair_score_delta": 0.0,
+              "exact_vs_stable_npu": false,
+              "max_abs_vs_stable_npu": 0.00799606554210186,
+              "decision_changes_vs_stable_npu": 4
+            },
+            {
+              "repeat": 2,
+              "pipeline_s": 26.984749004011974,
+              "clips_s": 2.3717100348231797,
+              "byte_equal_vs_first": true,
+              "same_input_cosine_min": 0.9999999999999997,
+              "vectors_below_099": 0,
+              "fixed_gallery_crossings": 0,
+              "max_pair_score_delta": 0.0,
+              "exact_vs_stable_npu": false,
+              "max_abs_vs_stable_npu": 0.00799606554210186,
+              "decision_changes_vs_stable_npu": 4
+            }
+          ],
+          "frozen_contract_equal": true,
+          "median_s": 25.695816521998495,
+          "clips_s": 2.4906778091760127
+        }
+      ],
+      "repeats": 3,
+      "timing": "resident model; reread+SHA256+decode+resize+MM+inference+L2+result materialization; excludes startup/warmup",
+      "combined_median_sum_s": 46.249075066065416,
+      "combined_clips_s": 2.7676229160725017,
+      "quality": [
+        {
+          "repeat": 0,
+          "count": 128,
+          "same_input_cosine_min": 0.9998460869345536,
+          "vectors_below099": 0,
+          "fixed_old_gpu_gallery_crossings": 0,
+          "decision_changes_vs_stable_npu": 12,
+          "max_pair_score_delta_vs_frozen_gpu": 0.0026688170486968144,
+          "max_abs_vs_stable_npu": 0.00799606554210186,
+          "exact_vs_stable_npu": false,
+          "byte_equal_vs_first": true
+        },
+        {
+          "repeat": 1,
+          "count": 128,
+          "same_input_cosine_min": 0.9998460869345536,
+          "vectors_below099": 0,
+          "fixed_old_gpu_gallery_crossings": 0,
+          "decision_changes_vs_stable_npu": 12,
+          "max_pair_score_delta_vs_frozen_gpu": 0.0026688170486968144,
+          "max_abs_vs_stable_npu": 0.00799606554210186,
+          "exact_vs_stable_npu": false,
+          "byte_equal_vs_first": false
+        },
+        {
+          "repeat": 2,
+          "count": 128,
+          "same_input_cosine_min": 0.9998460869345536,
+          "vectors_below099": 0,
+          "fixed_old_gpu_gallery_crossings": 0,
+          "decision_changes_vs_stable_npu": 12,
+          "max_pair_score_delta_vs_frozen_gpu": 0.0026688170486968144,
+          "max_abs_vs_stable_npu": 0.00799606554210186,
+          "exact_vs_stable_npu": false,
+          "byte_equal_vs_first": true
+        }
+      ],
+      "same_input_cosine_gate_pass": true,
+      "frozen_gallery_zero_crossing_gate_pass": true
+    },
+    "gpu32": {
+      "parameters": {
+        "runtime": "vllm",
+        "engine_mode": "async",
+        "sample_fps": 1.0,
+        "max_frames": 64,
+        "decode_short_side": 320,
+        "dtype": "bfloat16",
+        "frame_transport": "uint8",
+        "batch_clips": 64,
+        "max_num_seqs": 64,
+        "max_num_batched_tokens": 16384,
+        "request_concurrency": 64,
+        "processor_workers": 2,
+        "decode_workers": 32,
+        "decode_threads": 1,
+        "processing_window": 256,
+        "submission_order": "mixed",
+        "max_model_len": 32768,
+        "gpu_memory_utilization": 0.8,
+        "instruction": "Represent the user's input.",
+        "bucket_policy": "continuous-token-budget",
+        "decode_processes": 32,
+        "cpu_threads": 1
+      },
+      "versions": {
+        "torch": "2.10.0",
+        "torchvision": "0.25.0",
+        "vllm": "0.19.0",
+        "transformers": "4.57.6",
+        "qwen-vl-utils": "0.0.14",
+        "av": "17.1.0",
+        "numpy": "2.2.6"
+      },
+      "model_sha256": "c73fa9caeddeb3ff831d46c085a7a5708343248ca777e90f2d486964464509c1",
+      "code_sha256": {
+        "runtime/qwen_embedding/__init__.py": "d09941bd69b11457446b42e3df6b3de1a131518bc27ba76de19ac6033841334d",
+        "runtime/qwen_embedding/types.py": "affecce6cdeee2dd1e25a3cd699e91d36bb411c0e272fb70140a5554b44bfcce",
+        "runtime/qwen_embedding/video.py": "bfbd217f8e2c6978423dd94270961f6defd51e58a5f6de1e1305bae43e0cf96b",
+        "runtime/qwen_embedding/pyav_reader.py": "6265cd5ed29db7f6c127c876c758d44fbd95f110632163d9382f2a9c83ece6fb",
+        "runtime/qwen_embedding/cpu_decode.py": "7fee0db0ef3ae657fbd8ee0662e1b07f8019f56c7ac9052c649cc1242ffd20ba",
+        "scripts/benchmark.py": "61cd49a1259924b38b8b81386bba69b5fd89fcf12b9933589280313bb407e0ef"
+      },
+      "startup_s": 104.89054513396695,
+      "pool_warmup": {
+        "workers": 32,
+        "method": "real clip per worker and process barrier"
+      },
+      "cohorts": [
+        {
+          "name": "screen",
+          "count": 64,
+          "rounds": [
+            {
+              "repeat": 0,
+              "pipeline_s": 9.825473920907825,
+              "clips_s": 6.513680715574758,
+              "byte_equal_vs_first": true,
+              "same_input_cosine_min": 0.9998460869345536,
+              "vectors_below_099": 0,
+              "fixed_gallery_crossings": 0,
+              "max_pair_score_delta": 0.002601371985385015,
+              "exact_vs_stable_npu": false,
+              "max_abs_vs_stable_npu": 0.007406730204820633,
+              "decision_changes_vs_stable_npu": 8
+            },
+            {
+              "repeat": 1,
+              "pipeline_s": 9.89372600801289,
+              "clips_s": 6.468745945477633,
+              "byte_equal_vs_first": false,
+              "same_input_cosine_min": 0.9998460869345536,
+              "vectors_below_099": 0,
+              "fixed_gallery_crossings": 1,
+              "max_pair_score_delta": 0.0035933676122160696,
+              "exact_vs_stable_npu": false,
+              "max_abs_vs_stable_npu": 0.007406730204820633,
+              "decision_changes_vs_stable_npu": 9
+            },
+            {
+              "repeat": 2,
+              "pipeline_s": 9.687159977853298,
+              "clips_s": 6.606683501285851,
+              "byte_equal_vs_first": false,
+              "same_input_cosine_min": 0.9998460869345536,
+              "vectors_below_099": 0,
+              "fixed_gallery_crossings": 1,
+              "max_pair_score_delta": 0.002601371985385015,
+              "exact_vs_stable_npu": false,
+              "max_abs_vs_stable_npu": 0.007406730204820633,
+              "decision_changes_vs_stable_npu": 9
+            }
+          ],
+          "frozen_contract_equal": true,
+          "median_s": 9.825473920907825,
+          "clips_s": 6.513680715574758
+        },
+        {
+          "name": "holdout",
+          "count": 64,
+          "rounds": [
+            {
+              "repeat": 0,
+              "pipeline_s": 8.03921631583944,
+              "clips_s": 7.960974986318333,
+              "byte_equal_vs_first": true,
+              "same_input_cosine_min": 0.9999999999999997,
+              "vectors_below_099": 0,
+              "fixed_gallery_crossings": 0,
+              "max_pair_score_delta": 0.0,
+              "exact_vs_stable_npu": false,
+              "max_abs_vs_stable_npu": 0.00799606554210186,
+              "decision_changes_vs_stable_npu": 4
+            },
+            {
+              "repeat": 1,
+              "pipeline_s": 8.291222617030144,
+              "clips_s": 7.719006346367327,
+              "byte_equal_vs_first": true,
+              "same_input_cosine_min": 0.9999999999999997,
+              "vectors_below_099": 0,
+              "fixed_gallery_crossings": 0,
+              "max_pair_score_delta": 0.0,
+              "exact_vs_stable_npu": false,
+              "max_abs_vs_stable_npu": 0.00799606554210186,
+              "decision_changes_vs_stable_npu": 4
+            },
+            {
+              "repeat": 2,
+              "pipeline_s": 8.43622391903773,
+              "clips_s": 7.586332536239757,
+              "byte_equal_vs_first": true,
+              "same_input_cosine_min": 0.9999999999999997,
+              "vectors_below_099": 0,
+              "fixed_gallery_crossings": 0,
+              "max_pair_score_delta": 0.0,
+              "exact_vs_stable_npu": false,
+              "max_abs_vs_stable_npu": 0.00799606554210186,
+              "decision_changes_vs_stable_npu": 4
+            }
+          ],
+          "frozen_contract_equal": true,
+          "median_s": 8.291222617030144,
+          "clips_s": 7.719006346367327
+        }
+      ],
+      "repeats": 3,
+      "timing": "resident model; reread+SHA256+decode+resize+MM+inference+L2+result materialization; excludes startup/warmup",
+      "combined_median_sum_s": 18.11669653793797,
+      "combined_clips_s": 7.0653057378290045,
+      "quality": [
+        {
+          "repeat": 0,
+          "count": 128,
+          "same_input_cosine_min": 0.9998460869345536,
+          "vectors_below099": 0,
+          "fixed_old_gpu_gallery_crossings": 0,
+          "decision_changes_vs_stable_npu": 12,
+          "max_pair_score_delta_vs_frozen_gpu": 0.0026688170486968144,
+          "max_abs_vs_stable_npu": 0.00799606554210186,
+          "exact_vs_stable_npu": false,
+          "byte_equal_vs_first": true
+        },
+        {
+          "repeat": 1,
+          "count": 128,
+          "same_input_cosine_min": 0.9998460869345536,
+          "vectors_below099": 0,
+          "fixed_old_gpu_gallery_crossings": 1,
+          "decision_changes_vs_stable_npu": 13,
+          "max_pair_score_delta_vs_frozen_gpu": 0.004114866743746726,
+          "max_abs_vs_stable_npu": 0.00799606554210186,
+          "exact_vs_stable_npu": false,
+          "byte_equal_vs_first": false
+        },
+        {
+          "repeat": 2,
+          "count": 128,
+          "same_input_cosine_min": 0.9998460869345536,
+          "vectors_below099": 0,
+          "fixed_old_gpu_gallery_crossings": 1,
+          "decision_changes_vs_stable_npu": 13,
+          "max_pair_score_delta_vs_frozen_gpu": 0.0026688170486968144,
+          "max_abs_vs_stable_npu": 0.00799606554210186,
+          "exact_vs_stable_npu": false,
+          "byte_equal_vs_first": false
+        }
+      ],
+      "same_input_cosine_gate_pass": true,
+      "frozen_gallery_zero_crossing_gate_pass": false
+    },
+    "npu-stable": {
+      "parameters": {
+        "runtime": "vllm-ascend",
+        "engine_mode": "async",
+        "sample_fps": 1.0,
+        "max_frames": 64,
+        "decode_short_side": 320,
+        "dtype": "bfloat16",
+        "frame_transport": "uint8",
+        "batch_clips": 64,
+        "max_num_seqs": 1,
+        "max_num_batched_tokens": 16384,
+        "request_concurrency": 64,
+        "processor_workers": 2,
+        "decode_workers": 64,
+        "decode_threads": 1,
+        "processing_window": 256,
+        "submission_order": "mixed",
+        "max_model_len": 32768,
+        "gpu_memory_utilization": 0.8,
+        "instruction": "Represent the user's input.",
+        "bucket_policy": "continuous-token-budget",
+        "decode_processes": 64,
+        "cpu_threads": 1,
+        "legacy_video_prompt": true,
+        "rgb_mode": "x86-compatible",
+        "rgb_implementation": "cpp",
+        "enforce_eager": true,
+        "decode_mode": "single-pass",
+        "backend_versions": {
+          "vllm": "0.30.0+empty",
+          "vllm-ascend": "0.19.1rc2.dev2331+g16074608c",
+          "torch": "2.10.0+cpu",
+          "torch-npu": "2.10.0.post4",
+          "transformers": "5.14.1",
+          "qwen-vl-utils": "0.0.14",
+          "av": "17.1.0",
+          "numpy": "2.2.6"
+        }
+      },
+      "versions": {
+        "torch": "2.10.0+cpu",
+        "torchvision": "0.25.0+cpu",
+        "vllm": "0.30.0+empty",
+        "vllm-ascend": "0.19.1rc2.dev2331+g16074608c",
+        "torch-npu": "2.10.0.post4",
+        "transformers": "5.14.1",
+        "qwen-vl-utils": "0.0.14",
+        "av": "17.1.0",
+        "numpy": "2.2.6"
+      },
+      "model_sha256": "c73fa9caeddeb3ff831d46c085a7a5708343248ca777e90f2d486964464509c1",
+      "code_sha256": {
+        "runtime/qwen_embedding/ascend_graph_worker.py": "a47e637a91c0603e2d56d9e1caeb98699dea710e10e69b61ed7c2c091411dba9",
+        "runtime/qwen_embedding/build_rgb_core.py": "75ff9056a411345ab34c8a4906ab3259b2c5da77d5705184a00a4fa520d792a1",
+        "runtime/qwen_embedding/compiled_cuda_rounding.py": "22f9e16409b9fd650f7daf226591aae0d05434b524c9c0700ad33340ad1cf5b2",
+        "runtime/qwen_embedding/cpu_decode.py": "7fee0db0ef3ae657fbd8ee0662e1b07f8019f56c7ac9052c649cc1242ffd20ba",
+        "runtime/qwen_embedding/portable_rgb.py": "ccf2ce86e46af8c8a3ea04faeff70c8ade54db290476004300327f70ae174b5e",
+        "runtime/qwen_embedding/portable_rgb_core.cpp": "5fa4b1923e0d6f268223bc04199a37bf8aaf2858a9b94f470b70aa2c30ea25ab",
+        "runtime/qwen_embedding/pyav_reader.py": "63a058f74d4e7b0826a0473d6c1845ac5d5bedbc1cd471183a6416d6ee51feb2",
+        "runtime/qwen_embedding/types.py": "affecce6cdeee2dd1e25a3cd699e91d36bb411c0e272fb70140a5554b44bfcce",
+        "runtime/qwen_embedding/video.py": "79d6d229e509c28d25af12e5c23ad732b9a66538bfbfbb4b8ae01791d3f31b01",
+        "runtime/qwen_embedding/__init__.py": "d09941bd69b11457446b42e3df6b3de1a131518bc27ba76de19ac6033841334d",
+        "scripts/benchmark.py": "61cd49a1259924b38b8b81386bba69b5fd89fcf12b9933589280313bb407e0ef"
+      },
+      "startup_s": 162.20446302497294,
+      "pool_warmup": {
+        "workers": 64,
+        "method": "real clip per worker and process barrier"
+      },
+      "cohorts": [
+        {
+          "name": "screen",
+          "count": 64,
+          "rounds": [
+            {
+              "repeat": 0,
+              "pipeline_s": 8.325049331993796,
+              "clips_s": 7.6876421325268485,
+              "byte_equal_vs_first": true,
+              "same_input_cosine_min": 0.9989593419894784,
+              "vectors_below_099": 0,
+              "fixed_gallery_crossings": 8,
+              "max_pair_score_delta": 0.006477585806466624,
+              "exact_vs_stable_npu": true,
+              "max_abs_vs_stable_npu": 0.0,
+              "decision_changes_vs_stable_npu": 0
+            },
+            {
+              "repeat": 1,
+              "pipeline_s": 8.293712463928387,
+              "clips_s": 7.716689031402213,
+              "byte_equal_vs_first": true,
+              "same_input_cosine_min": 0.9989593419894784,
+              "vectors_below_099": 0,
+              "fixed_gallery_crossings": 8,
+              "max_pair_score_delta": 0.006477585806466624,
+              "exact_vs_stable_npu": true,
+              "max_abs_vs_stable_npu": 0.0,
+              "decision_changes_vs_stable_npu": 0
+            },
+            {
+              "repeat": 2,
+              "pipeline_s": 8.406209297012538,
+              "clips_s": 7.613419763738788,
+              "byte_equal_vs_first": true,
+              "same_input_cosine_min": 0.9989593419894784,
+              "vectors_below_099": 0,
+              "fixed_gallery_crossings": 8,
+              "max_pair_score_delta": 0.006477585806466624,
+              "exact_vs_stable_npu": true,
+              "max_abs_vs_stable_npu": 0.0,
+              "decision_changes_vs_stable_npu": 0
+            }
+          ],
+          "frozen_contract_equal": true,
+          "median_s": 8.325049331993796,
+          "clips_s": 7.6876421325268485
+        },
+        {
+          "name": "holdout",
+          "count": 64,
+          "rounds": [
+            {
+              "repeat": 0,
+              "pipeline_s": 9.287564635043964,
+              "clips_s": 6.89093454687942,
+              "byte_equal_vs_first": true,
+              "same_input_cosine_min": 0.9994290794344004,
+              "vectors_below_099": 0,
+              "fixed_gallery_crossings": 4,
+              "max_pair_score_delta": 0.009362091806674078,
+              "exact_vs_stable_npu": true,
+              "max_abs_vs_stable_npu": 0.0,
+              "decision_changes_vs_stable_npu": 0
+            },
+            {
+              "repeat": 1,
+              "pipeline_s": 9.401075582019985,
+              "clips_s": 6.807731673001664,
+              "byte_equal_vs_first": true,
+              "same_input_cosine_min": 0.9994290794344004,
+              "vectors_below_099": 0,
+              "fixed_gallery_crossings": 4,
+              "max_pair_score_delta": 0.009362091806674078,
+              "exact_vs_stable_npu": true,
+              "max_abs_vs_stable_npu": 0.0,
+              "decision_changes_vs_stable_npu": 0
+            },
+            {
+              "repeat": 2,
+              "pipeline_s": 9.58894624793902,
+              "clips_s": 6.67435173220996,
+              "byte_equal_vs_first": true,
+              "same_input_cosine_min": 0.9994290794344004,
+              "vectors_below_099": 0,
+              "fixed_gallery_crossings": 4,
+              "max_pair_score_delta": 0.009362091806674078,
+              "exact_vs_stable_npu": true,
+              "max_abs_vs_stable_npu": 0.0,
+              "decision_changes_vs_stable_npu": 0
+            }
+          ],
+          "frozen_contract_equal": true,
+          "median_s": 9.401075582019985,
+          "clips_s": 6.807731673001664
+        }
+      ],
+      "repeats": 3,
+      "timing": "resident model; reread+SHA256+decode+resize+MM+inference+L2+result materialization; excludes startup/warmup",
+      "combined_median_sum_s": 17.72612491401378,
+      "combined_clips_s": 7.220980367728695,
+      "quality": [
+        {
+          "repeat": 0,
+          "count": 128,
+          "same_input_cosine_min": 0.9989593419894784,
+          "vectors_below099": 0,
+          "fixed_old_gpu_gallery_crossings": 12,
+          "decision_changes_vs_stable_npu": 0,
+          "max_pair_score_delta_vs_frozen_gpu": 0.009362091806674078,
+          "max_abs_vs_stable_npu": 0.0,
+          "exact_vs_stable_npu": true,
+          "byte_equal_vs_first": true
+        },
+        {
+          "repeat": 1,
+          "count": 128,
+          "same_input_cosine_min": 0.9989593419894784,
+          "vectors_below099": 0,
+          "fixed_old_gpu_gallery_crossings": 12,
+          "decision_changes_vs_stable_npu": 0,
+          "max_pair_score_delta_vs_frozen_gpu": 0.009362091806674078,
+          "max_abs_vs_stable_npu": 0.0,
+          "exact_vs_stable_npu": true,
+          "byte_equal_vs_first": true
+        },
+        {
+          "repeat": 2,
+          "count": 128,
+          "same_input_cosine_min": 0.9989593419894784,
+          "vectors_below099": 0,
+          "fixed_old_gpu_gallery_crossings": 12,
+          "decision_changes_vs_stable_npu": 0,
+          "max_pair_score_delta_vs_frozen_gpu": 0.009362091806674078,
+          "max_abs_vs_stable_npu": 0.0,
+          "exact_vs_stable_npu": true,
+          "byte_equal_vs_first": true
+        }
+      ],
+      "same_input_cosine_gate_pass": true,
+      "frozen_gallery_zero_crossing_gate_pass": false
+    },
+    "npu-spg": {
+      "parameters": {
+        "runtime": "vllm-ascend",
+        "engine_mode": "async",
+        "sample_fps": 1.0,
+        "max_frames": 64,
+        "decode_short_side": 320,
+        "dtype": "bfloat16",
+        "frame_transport": "uint8",
+        "batch_clips": 64,
+        "max_num_seqs": 1,
+        "max_num_batched_tokens": 16384,
+        "request_concurrency": 64,
+        "processor_workers": 2,
+        "decode_workers": 64,
+        "decode_threads": 1,
+        "processing_window": 256,
+        "submission_order": "mixed",
+        "max_model_len": 32768,
+        "gpu_memory_utilization": 0.8,
+        "instruction": "Represent the user's input.",
+        "bucket_policy": "continuous-token-budget",
+        "decode_processes": 64,
+        "cpu_threads": 1,
+        "legacy_video_prompt": true,
+        "rgb_mode": "x86-compatible",
+        "rgb_implementation": "cpp",
+        "enforce_eager": false,
+        "decode_mode": "single-pass",
+        "backend_versions": {
+          "vllm": "0.30.0+empty",
+          "vllm-ascend": "0.19.1rc2.dev2331+g16074608c",
+          "torch": "2.10.0+cpu",
+          "torch-npu": "2.10.0.post4",
+          "transformers": "5.14.1",
+          "qwen-vl-utils": "0.0.14",
+          "av": "17.1.0",
+          "numpy": "2.2.6"
+        },
+        "worker_cls": "qwen_embedding.ascend_graph_worker.PrecisionGraphWorker",
+        "compilation_config": {
+          "mode": 3,
+          "cudagraph_mode": "PIECEWISE",
+          "cudagraph_capture_sizes": [
+            256,
+            512,
+            1024,
+            2048
+          ],
+          "max_cudagraph_capture_size": 2048
+        }
+      },
+      "versions": {
+        "torch": "2.10.0+cpu",
+        "torchvision": "0.25.0+cpu",
+        "vllm": "0.30.0+empty",
+        "vllm-ascend": "0.19.1rc2.dev2331+g16074608c",
+        "torch-npu": "2.10.0.post4",
+        "transformers": "5.14.1",
+        "qwen-vl-utils": "0.0.14",
+        "av": "17.1.0",
+        "numpy": "2.2.6"
+      },
+      "model_sha256": "c73fa9caeddeb3ff831d46c085a7a5708343248ca777e90f2d486964464509c1",
+      "code_sha256": {
+        "runtime/qwen_embedding/ascend_graph_worker.py": "a47e637a91c0603e2d56d9e1caeb98699dea710e10e69b61ed7c2c091411dba9",
+        "runtime/qwen_embedding/build_rgb_core.py": "75ff9056a411345ab34c8a4906ab3259b2c5da77d5705184a00a4fa520d792a1",
+        "runtime/qwen_embedding/compiled_cuda_rounding.py": "22f9e16409b9fd650f7daf226591aae0d05434b524c9c0700ad33340ad1cf5b2",
+        "runtime/qwen_embedding/cpu_decode.py": "7fee0db0ef3ae657fbd8ee0662e1b07f8019f56c7ac9052c649cc1242ffd20ba",
+        "runtime/qwen_embedding/portable_rgb.py": "ccf2ce86e46af8c8a3ea04faeff70c8ade54db290476004300327f70ae174b5e",
+        "runtime/qwen_embedding/portable_rgb_core.cpp": "5fa4b1923e0d6f268223bc04199a37bf8aaf2858a9b94f470b70aa2c30ea25ab",
+        "runtime/qwen_embedding/pyav_reader.py": "63a058f74d4e7b0826a0473d6c1845ac5d5bedbc1cd471183a6416d6ee51feb2",
+        "runtime/qwen_embedding/types.py": "affecce6cdeee2dd1e25a3cd699e91d36bb411c0e272fb70140a5554b44bfcce",
+        "runtime/qwen_embedding/video.py": "79d6d229e509c28d25af12e5c23ad732b9a66538bfbfbb4b8ae01791d3f31b01",
+        "runtime/qwen_embedding/__init__.py": "d09941bd69b11457446b42e3df6b3de1a131518bc27ba76de19ac6033841334d",
+        "scripts/benchmark.py": "61cd49a1259924b38b8b81386bba69b5fd89fcf12b9933589280313bb407e0ef"
+      },
+      "startup_s": 191.97848676308058,
+      "pool_warmup": {
+        "workers": 64,
+        "method": "real clip per worker and process barrier"
+      },
+      "cohorts": [
+        {
+          "name": "screen",
+          "count": 64,
+          "rounds": [
+            {
+              "repeat": 0,
+              "pipeline_s": 7.683270400040783,
+              "clips_s": 8.329786232651696,
+              "byte_equal_vs_first": true,
+              "same_input_cosine_min": 0.9990080286754597,
+              "vectors_below_099": 0,
+              "fixed_gallery_crossings": 11,
+              "max_pair_score_delta": 0.008108293377034337,
+              "exact_vs_stable_npu": false,
+              "max_abs_vs_stable_npu": 0.007102400064468384,
+              "decision_changes_vs_stable_npu": 3
+            },
+            {
+              "repeat": 1,
+              "pipeline_s": 7.887885652016848,
+              "clips_s": 8.113707883637472,
+              "byte_equal_vs_first": true,
+              "same_input_cosine_min": 0.9990080286754597,
+              "vectors_below_099": 0,
+              "fixed_gallery_crossings": 11,
+              "max_pair_score_delta": 0.008108293377034337,
+              "exact_vs_stable_npu": false,
+              "max_abs_vs_stable_npu": 0.007102400064468384,
+              "decision_changes_vs_stable_npu": 3
+            },
+            {
+              "repeat": 2,
+              "pipeline_s": 7.708568411064334,
+              "clips_s": 8.302449506465937,
+              "byte_equal_vs_first": true,
+              "same_input_cosine_min": 0.9990080286754597,
+              "vectors_below_099": 0,
+              "fixed_gallery_crossings": 11,
+              "max_pair_score_delta": 0.008108293377034337,
+              "exact_vs_stable_npu": false,
+              "max_abs_vs_stable_npu": 0.007102400064468384,
+              "decision_changes_vs_stable_npu": 3
+            }
+          ],
+          "frozen_contract_equal": true,
+          "median_s": 7.708568411064334,
+          "clips_s": 8.302449506465937
+        },
+        {
+          "name": "holdout",
+          "count": 64,
+          "rounds": [
+            {
+              "repeat": 0,
+              "pipeline_s": 8.073542534955777,
+              "clips_s": 7.927127369788553,
+              "byte_equal_vs_first": true,
+              "same_input_cosine_min": 0.9994717386981671,
+              "vectors_below_099": 0,
+              "fixed_gallery_crossings": 4,
+              "max_pair_score_delta": 0.007396930516424316,
+              "exact_vs_stable_npu": false,
+              "max_abs_vs_stable_npu": 0.005387475248426199,
+              "decision_changes_vs_stable_npu": 4
+            },
+            {
+              "repeat": 1,
+              "pipeline_s": 8.028905936982483,
+              "clips_s": 7.971198131143286,
+              "byte_equal_vs_first": true,
+              "same_input_cosine_min": 0.9994717386981671,
+              "vectors_below_099": 0,
+              "fixed_gallery_crossings": 4,
+              "max_pair_score_delta": 0.007396930516424316,
+              "exact_vs_stable_npu": false,
+              "max_abs_vs_stable_npu": 0.005387475248426199,
+              "decision_changes_vs_stable_npu": 4
+            },
+            {
+              "repeat": 2,
+              "pipeline_s": 9.42567704000976,
+              "clips_s": 6.789963174882314,
+              "byte_equal_vs_first": true,
+              "same_input_cosine_min": 0.9994717386981671,
+              "vectors_below_099": 0,
+              "fixed_gallery_crossings": 4,
+              "max_pair_score_delta": 0.007396930516424316,
+              "exact_vs_stable_npu": false,
+              "max_abs_vs_stable_npu": 0.005387475248426199,
+              "decision_changes_vs_stable_npu": 4
+            }
+          ],
+          "frozen_contract_equal": true,
+          "median_s": 8.073542534955777,
+          "clips_s": 7.927127369788553
+        }
+      ],
+      "repeats": 3,
+      "timing": "resident model; reread+SHA256+decode+resize+MM+inference+L2+result materialization; excludes startup/warmup",
+      "combined_median_sum_s": 15.782110946020111,
+      "combined_clips_s": 8.110448623622094,
+      "quality": [
+        {
+          "repeat": 0,
+          "count": 128,
+          "same_input_cosine_min": 0.9990080286754597,
+          "vectors_below099": 0,
+          "fixed_old_gpu_gallery_crossings": 15,
+          "decision_changes_vs_stable_npu": 7,
+          "max_pair_score_delta_vs_frozen_gpu": 0.008281267919774349,
+          "max_abs_vs_stable_npu": 0.007102400064468384,
+          "exact_vs_stable_npu": false,
+          "byte_equal_vs_first": true
+        },
+        {
+          "repeat": 1,
+          "count": 128,
+          "same_input_cosine_min": 0.9990080286754597,
+          "vectors_below099": 0,
+          "fixed_old_gpu_gallery_crossings": 15,
+          "decision_changes_vs_stable_npu": 7,
+          "max_pair_score_delta_vs_frozen_gpu": 0.008281267919774349,
+          "max_abs_vs_stable_npu": 0.007102400064468384,
+          "exact_vs_stable_npu": false,
+          "byte_equal_vs_first": true
+        },
+        {
+          "repeat": 2,
+          "count": 128,
+          "same_input_cosine_min": 0.9990080286754597,
+          "vectors_below099": 0,
+          "fixed_old_gpu_gallery_crossings": 15,
+          "decision_changes_vs_stable_npu": 7,
+          "max_pair_score_delta_vs_frozen_gpu": 0.008281267919774349,
+          "max_abs_vs_stable_npu": 0.007102400064468384,
+          "exact_vs_stable_npu": false,
+          "byte_equal_vs_first": true
+        }
+      ],
+      "same_input_cosine_gate_pass": true,
+      "frozen_gallery_zero_crossing_gate_pass": false,
+      "graph_final": [
+        {
+          "worker_class": "WorkerWrapperBase",
+          "deepstack": {
+            "sites": 1,
+            "generated_source": "graph_deepstack_forward.py",
+            "generated_sha256": "5d057a58315e10a4358623eaa138ba308099a53543158ca7f23fe8d5075181b7"
+          },
+          "norms": {
+            "norms": 57,
+            "internal_dtype": "float32",
+            "gamma": "original per-forward FP32 conversion",
+            "output_and_residual_dtype": "bfloat16",
+            "python_counters": false
+          },
+          "compilation_counters": {
+            "num_models_seen": 3,
+            "num_graphs_seen": 1,
+            "num_piecewise_graphs_seen": 57,
+            "num_piecewise_capturable_graphs_seen": 29,
+            "num_backend_compilations": 29,
+            "num_gpu_runner_capture_triggers": 1,
+            "num_cudagraph_captured": 116,
+            "num_inductor_compiles": 0,
+            "num_eager_compiles": 0,
+            "num_cache_entries_updated": 0,
+            "num_compiled_artifacts_saved": 0,
+            "num_compiled_artifacts_loaded": 0,
+            "num_aot_compiles": 1,
+            "num_aot_artifacts_saved": 1,
+            "num_aot_artifacts_loaded": 0,
+            "stock_torch_compile_count": 0
+          },
+          "cudagraph_mode": "PIECEWISE",
+          "compilation_mode": "3",
+          "enforce_eager": false,
+          "capture_sizes": [
+            256,
+            512,
+            1024,
+            2048
+          ],
+          "language_modules": [
+            {
+              "name": "language_model.model",
+              "compiled": true,
+              "do_not_compile": false,
+              "compiled_fn_type": "<class 'NoneType'>"
+            }
+          ],
+          "torch_threads": 1,
+          "runtime_dispatch": {
+            "replay": 15312,
+            "capture": 116,
+            "bypass": 145
+          }
+        }
+      ]
+    }
+  },
+  "precision_scope": "combined cohorts; all directed nonself pairs; frozen GPU queries and gallery; threshold >=0.99",
+  "dataset": "private frozen 2x64 cohorts, 16 separate warmup; both cohorts previously used for evaluation, not blind",
+  "performance_scope": "sum of cohort medians, not a new 128-concurrent batch; resident warmed pipeline, no profiler",
+  "all_runs_pixels_metadata_contract_equal": false,
+  "boundary_comparisons": [
+    {
+      "run": "gpu8",
+      "cohort": "screen",
+      "count": 64,
+      "pixels_metadata_hash_differences_vs_first_run": 0,
+      "frame_shape_prompt_contract_differences_vs_first_run": 0
+    },
+    {
+      "run": "gpu8",
+      "cohort": "holdout",
+      "count": 64,
+      "pixels_metadata_hash_differences_vs_first_run": 0,
+      "frame_shape_prompt_contract_differences_vs_first_run": 0
+    },
+    {
+      "run": "gpu32",
+      "cohort": "screen",
+      "count": 64,
+      "pixels_metadata_hash_differences_vs_first_run": 0,
+      "frame_shape_prompt_contract_differences_vs_first_run": 0
+    },
+    {
+      "run": "gpu32",
+      "cohort": "holdout",
+      "count": 64,
+      "pixels_metadata_hash_differences_vs_first_run": 0,
+      "frame_shape_prompt_contract_differences_vs_first_run": 0
+    },
+    {
+      "run": "npu-stable",
+      "cohort": "screen",
+      "count": 64,
+      "pixels_metadata_hash_differences_vs_first_run": 61,
+      "frame_shape_prompt_contract_differences_vs_first_run": 0
+    },
+    {
+      "run": "npu-stable",
+      "cohort": "holdout",
+      "count": 64,
+      "pixels_metadata_hash_differences_vs_first_run": 64,
+      "frame_shape_prompt_contract_differences_vs_first_run": 0
+    },
+    {
+      "run": "npu-spg",
+      "cohort": "screen",
+      "count": 64,
+      "pixels_metadata_hash_differences_vs_first_run": 61,
+      "frame_shape_prompt_contract_differences_vs_first_run": 0
+    },
+    {
+      "run": "npu-spg",
+      "cohort": "holdout",
+      "count": 64,
+      "pixels_metadata_hash_differences_vs_first_run": 64,
+      "frame_shape_prompt_contract_differences_vs_first_run": 0
+    }
+  ],
+  "boundary_pairwise": [
+    {
+      "left": "gpu8",
+      "right": "gpu32",
+      "pixels_metadata_hash_differences": 0,
+      "frame_shape_prompt_contract_differences": 0
+    },
+    {
+      "left": "gpu8",
+      "right": "npu-stable",
+      "pixels_metadata_hash_differences": 125,
+      "frame_shape_prompt_contract_differences": 0
+    },
+    {
+      "left": "gpu8",
+      "right": "npu-spg",
+      "pixels_metadata_hash_differences": 125,
+      "frame_shape_prompt_contract_differences": 0
+    },
+    {
+      "left": "gpu32",
+      "right": "npu-stable",
+      "pixels_metadata_hash_differences": 125,
+      "frame_shape_prompt_contract_differences": 0
+    },
+    {
+      "left": "gpu32",
+      "right": "npu-spg",
+      "pixels_metadata_hash_differences": 125,
+      "frame_shape_prompt_contract_differences": 0
+    },
+    {
+      "left": "npu-stable",
+      "right": "npu-spg",
+      "pixels_metadata_hash_differences": 0,
+      "frame_shape_prompt_contract_differences": 0
+    }
+  ],
+  "pixel_diagnostic": {
+    "scope": "four selected diagnostic clips, not an all-128 absolute-error bound",
+    "cases": [
+      {
+        "pixel_max_abs": 1,
+        "pixel_diff_count": 50,
+        "pixel_element_count": 8847360,
+        "metadata_equal": true,
+        "raw_first_frame_equal": true,
+        "raw_max_abs": 0
+      },
+      {
+        "pixel_max_abs": 1,
+        "pixel_diff_count": 37,
+        "pixel_element_count": 8847360,
+        "metadata_equal": true,
+        "raw_first_frame_equal": true,
+        "raw_max_abs": 0
+      },
+      {
+        "pixel_max_abs": 1,
+        "pixel_diff_count": 35,
+        "pixel_element_count": 8847360,
+        "metadata_equal": true,
+        "raw_first_frame_equal": true,
+        "raw_max_abs": 0
+      },
+      {
+        "pixel_max_abs": 1,
+        "pixel_diff_count": 56,
+        "pixel_element_count": 11059200,
+        "metadata_equal": true,
+        "raw_first_frame_equal": true,
+        "raw_max_abs": 0
+      }
+    ],
+    "first_frame_resize_comparison": {
+      "raw_first_frames_equal": 4,
+      "resized_first_frames_different": 3,
+      "maximum_resized_first_frame_difference": 1
+    },
+    "interpretation": "An existing cross-architecture preprocessing difference is present. Three identical raw first-frame inputs differ after resize. Do not infer all model error is caused by resize."
+  },
+  "cpu_tests": {
+    "gpu": {
+      "payload_guards": 3,
+      "invalid_vector_guards": 3,
+      "passed": true
+    },
+    "npu": {
+      "payload_guards": 3,
+      "invalid_vector_guards": 3,
+      "decode_guards": [
+        {
+          "name": "valid-header",
+          "pass_result": true,
+          "decode_passes": [
+            2,
+            1
+          ],
+          "rejects_invalid": false
+        },
+        {
+          "name": "unknown-header",
+          "pass_result": true,
+          "decode_passes": [
+            2,
+            2
+          ],
+          "rejects_invalid": false
+        },
+        {
+          "name": "overstated-header",
+          "pass_result": true,
+          "decode_passes": [
+            2,
+            3
+          ],
+          "rejects_invalid": false
+        },
+        {
+          "name": "understated-header",
+          "pass_result": true,
+          "decode_passes": [
+            2,
+            3
+          ],
+          "rejects_invalid": false
+        },
+        {
+          "name": "single-frame",
+          "pass_result": true,
+          "decode_passes": [
+            2,
+            1
+          ],
+          "rejects_invalid": false
+        },
+        {
+          "name": "unselected-corrupt",
+          "pass_result": true,
+          "decode_passes": [
+            1,
+            1
+          ],
+          "rejects_invalid": true
+        },
+        {
+          "name": "unselected-dimension-change",
+          "pass_result": true,
+          "decode_passes": [
+            1,
+            1
+          ],
+          "rejects_invalid": true
+        },
+        {
+          "name": "empty-video",
+          "pass_result": true,
+          "decode_passes": [
+            1,
+            1
+          ],
+          "rejects_invalid": true
+        }
+      ],
+      "synthetic_video_exact": true,
+      "rgb_exact_cases": 18
+    }
+  },
+  "source_identity": {
+    "tested_runtime_and_benchmark_file_checks": 34,
+    "all_exact": true,
+    "analysis_script_sha256": "c82a4b10b1c0f6920bbec5175c011fadd8ac3908656b33d7ea37d202a07df286"
+  },
+  "measurement_limits": [
+    "One selected idle card per backend, other GPUs on the GPU host carried unrelated workloads; CPU/memory were not isolated.",
+    "Three warmed repeats per cohort per configuration, sequential separate processes; this release rerun is not a new A/B/A sweep.",
+    "GPU remains two-pass CPU32; NPU uses single-pass. Ratio compares deployment pipelines, not isolated accelerator kernels.",
+    "All vectors pass the same-input cosine >=0.99 gate. NPU does not pass the frozen-gallery zero-crossing gate."
+  ],
+  "ratios": {
+    "gpu32_vs_gpu8": 2.552842620574659,
+    "npu_stable_pct_gpu32": 102.20336720980352,
+    "npu_spg_pct_gpu32": 114.79260664117044,
+    "npu_spg_vs_stable": 1.1231783235235655
+  },
+  "hardware": {
+    "gpu": {
+      "model": "NVIDIA RTX 5090",
+      "cards": 1,
+      "memory_gib": 32,
+      "host_logical_cpus": 264,
+      "python": "3.12.15",
+      "cuda_runtime": "12.8",
+      "driver": "580.126.09"
+    },
+    "npu": {
+      "model": "Ascend 910B1",
+      "cards": 1,
+      "memory_gib": 64,
+      "host_logical_cpus": 192,
+      "cann": "9.1.0",
+      "driver": "25.5.1"
+    }
+  }
+}
