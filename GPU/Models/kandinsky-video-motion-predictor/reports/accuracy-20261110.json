@@ -1,0 +1,514 @@
+{
+  "protocol": {
+    "clips": 100,
+    "scores_per_clip": 3,
+    "statistics_dtype": "Python float64",
+    "p95": "linear interpolation at (N-1)*0.95",
+    "bias": "test - reference",
+    "global": "flatten 100x3 equally weighted",
+    "thresholds": {
+      "static": "camera<0.5 AND object<0.5 AND dynamics<1.0",
+      "violent": "camera>2.5 AND dynamics>2.5"
+    }
+  },
+  "comparisons": {
+    "npu_best_vs_gpu_best": {
+      "reference": "gpu_best",
+      "test": "npu_best",
+      "per_score": {
+        "motion_camera": {
+          "count": 100,
+          "mse": 4.505564438659349e-06,
+          "rmse": 0.0021226314891330876,
+          "mae": 0.0014115428924560546,
+          "max_absolute_error": 0.006591796875,
+          "p95_absolute_error": 0.004440307617187497,
+          "bias_test_minus_reference": -0.0010402393341064453,
+          "pearson_r": 0.9999966137743994,
+          "r2": 0.9999908337202362,
+          "relative_l2": 0.0018259416904533473,
+          "exact_values": 21,
+          "reference_min": 0.0035219192504882812,
+          "reference_max": 2.50634765625
+        },
+        "motion_object": {
+          "count": 100,
+          "mse": 1.1168865021318198e-05,
+          "rmse": 0.003341985191666504,
+          "mae": 0.002237091064453125,
+          "max_absolute_error": 0.01318359375,
+          "p95_absolute_error": 0.007360839843749998,
+          "bias_test_minus_reference": 0.002097930908203125,
+          "pearson_r": 0.9999947936086929,
+          "r2": 0.999981343680925,
+          "relative_l2": 0.001801839211616693,
+          "exact_values": 19,
+          "reference_min": 0.0425262451171875,
+          "reference_max": 2.90478515625
+        },
+        "motion_dynamics": {
+          "count": 100,
+          "mse": 2.0650822261814027e-06,
+          "rmse": 0.0014370393961827918,
+          "mae": 0.0009094619750976562,
+          "max_absolute_error": 0.00439453125,
+          "p95_absolute_error": 0.003680419921874999,
+          "bias_test_minus_reference": -0.00034206390380859376,
+          "pearson_r": 0.9999976050497759,
+          "r2": 0.9999944837008454,
+          "relative_l2": 0.001751412270326617,
+          "exact_values": 17,
+          "reference_min": 0.012073516845703125,
+          "reference_max": 2.2998046875
+        }
+      },
+      "global": {
+        "count": 300,
+        "mse": 5.913170562052983e-06,
+        "rmse": 0.0024317011662729,
+        "mae": 0.0015193653106689454,
+        "max_absolute_error": 0.01318359375,
+        "p95_absolute_error": 0.005136108398437502,
+        "bias_test_minus_reference": 0.0002385425567626953,
+        "pearson_r": 0.9999959308242672,
+        "r2": 0.9999916988441834,
+        "relative_l2": 0.0018017139764043724,
+        "exact_values": 57,
+        "reference_min": 0.0035219192504882812,
+        "reference_max": 2.90478515625
+      },
+      "pixel_hash_matches": 100,
+      "threshold_changes": {
+        "static": 0,
+        "violent": 0
+      },
+      "threshold_positive_counts": {
+        "static": {
+          "reference": 2,
+          "test": 2
+        },
+        "violent": {
+          "reference": 0,
+          "test": 0
+        }
+      },
+      "clips_with_any_threshold_change": 0,
+      "clips_all_scores_exact": 0
+    },
+    "npu_best_vs_gpu_original": {
+      "reference": "gpu_original",
+      "test": "npu_best",
+      "per_score": {
+        "motion_camera": {
+          "count": 100,
+          "mse": 4.505564438659349e-06,
+          "rmse": 0.0021226314891330876,
+          "mae": 0.0014115428924560546,
+          "max_absolute_error": 0.006591796875,
+          "p95_absolute_error": 0.004440307617187497,
+          "bias_test_minus_reference": -0.0010402393341064453,
+          "pearson_r": 0.9999966137743994,
+          "r2": 0.9999908337202362,
+          "relative_l2": 0.0018259416904533473,
+          "exact_values": 21,
+          "reference_min": 0.0035219192504882812,
+          "reference_max": 2.50634765625
+        },
+        "motion_object": {
+          "count": 100,
+          "mse": 1.1168865021318198e-05,
+          "rmse": 0.003341985191666504,
+          "mae": 0.002237091064453125,
+          "max_absolute_error": 0.01318359375,
+          "p95_absolute_error": 0.007360839843749998,
+          "bias_test_minus_reference": 0.002097930908203125,
+          "pearson_r": 0.9999947936086929,
+          "r2": 0.999981343680925,
+          "relative_l2": 0.001801839211616693,
+          "exact_values": 19,
+          "reference_min": 0.0425262451171875,
+          "reference_max": 2.90478515625
+        },
+        "motion_dynamics": {
+          "count": 100,
+          "mse": 2.0650822261814027e-06,
+          "rmse": 0.0014370393961827918,
+          "mae": 0.0009094619750976562,
+          "max_absolute_error": 0.00439453125,
+          "p95_absolute_error": 0.003680419921874999,
+          "bias_test_minus_reference": -0.00034206390380859376,
+          "pearson_r": 0.9999976050497759,
+          "r2": 0.9999944837008454,
+          "relative_l2": 0.001751412270326617,
+          "exact_values": 17,
+          "reference_min": 0.012073516845703125,
+          "reference_max": 2.2998046875
+        }
+      },
+      "global": {
+        "count": 300,
+        "mse": 5.913170562052983e-06,
+        "rmse": 0.0024317011662729,
+        "mae": 0.0015193653106689454,
+        "max_absolute_error": 0.01318359375,
+        "p95_absolute_error": 0.005136108398437502,
+        "bias_test_minus_reference": 0.0002385425567626953,
+        "pearson_r": 0.9999959308242672,
+        "r2": 0.9999916988441834,
+        "relative_l2": 0.0018017139764043724,
+        "exact_values": 57,
+        "reference_min": 0.0035219192504882812,
+        "reference_max": 2.90478515625
+      },
+      "pixel_hash_matches": 100,
+      "threshold_changes": {
+        "static": 0,
+        "violent": 0
+      },
+      "threshold_positive_counts": {
+        "static": {
+          "reference": 2,
+          "test": 2
+        },
+        "violent": {
+          "reference": 0,
+          "test": 0
+        }
+      },
+      "clips_with_any_threshold_change": 0,
+      "clips_all_scores_exact": 0
+    },
+    "npu_original_vs_gpu_original": {
+      "reference": "gpu_original",
+      "test": "npu_original",
+      "per_score": {
+        "motion_camera": {
+          "count": 100,
+          "mse": 4.505564438659349e-06,
+          "rmse": 0.0021226314891330876,
+          "mae": 0.0014115428924560546,
+          "max_absolute_error": 0.006591796875,
+          "p95_absolute_error": 0.004440307617187497,
+          "bias_test_minus_reference": -0.0010402393341064453,
+          "pearson_r": 0.9999966137743994,
+          "r2": 0.9999908337202362,
+          "relative_l2": 0.0018259416904533473,
+          "exact_values": 21,
+          "reference_min": 0.0035219192504882812,
+          "reference_max": 2.50634765625
+        },
+        "motion_object": {
+          "count": 100,
+          "mse": 1.1168865021318198e-05,
+          "rmse": 0.003341985191666504,
+          "mae": 0.002237091064453125,
+          "max_absolute_error": 0.01318359375,
+          "p95_absolute_error": 0.007360839843749998,
+          "bias_test_minus_reference": 0.002097930908203125,
+          "pearson_r": 0.9999947936086929,
+          "r2": 0.999981343680925,
+          "relative_l2": 0.001801839211616693,
+          "exact_values": 19,
+          "reference_min": 0.0425262451171875,
+          "reference_max": 2.90478515625
+        },
+        "motion_dynamics": {
+          "count": 100,
+          "mse": 2.0650822261814027e-06,
+          "rmse": 0.0014370393961827918,
+          "mae": 0.0009094619750976562,
+          "max_absolute_error": 0.00439453125,
+          "p95_absolute_error": 0.003680419921874999,
+          "bias_test_minus_reference": -0.00034206390380859376,
+          "pearson_r": 0.9999976050497759,
+          "r2": 0.9999944837008454,
+          "relative_l2": 0.001751412270326617,
+          "exact_values": 17,
+          "reference_min": 0.012073516845703125,
+          "reference_max": 2.2998046875
+        }
+      },
+      "global": {
+        "count": 300,
+        "mse": 5.913170562052983e-06,
+        "rmse": 0.0024317011662729,
+        "mae": 0.0015193653106689454,
+        "max_absolute_error": 0.01318359375,
+        "p95_absolute_error": 0.005136108398437502,
+        "bias_test_minus_reference": 0.0002385425567626953,
+        "pearson_r": 0.9999959308242672,
+        "r2": 0.9999916988441834,
+        "relative_l2": 0.0018017139764043724,
+        "exact_values": 57,
+        "reference_min": 0.0035219192504882812,
+        "reference_max": 2.90478515625
+      },
+      "pixel_hash_matches": null,
+      "threshold_changes": {
+        "static": 0,
+        "violent": 0
+      },
+      "threshold_positive_counts": {
+        "static": {
+          "reference": 2,
+          "test": 2
+        },
+        "violent": {
+          "reference": 0,
+          "test": 0
+        }
+      },
+      "clips_with_any_threshold_change": 0,
+      "clips_all_scores_exact": 0
+    },
+    "npu_best_vs_npu_original": {
+      "reference": "npu_original",
+      "test": "npu_best",
+      "per_score": {
+        "motion_camera": {
+          "count": 100,
+          "mse": 0.0,
+          "rmse": 0.0,
+          "mae": 0.0,
+          "max_absolute_error": 0.0,
+          "p95_absolute_error": 0.0,
+          "bias_test_minus_reference": 0.0,
+          "pearson_r": 1.0,
+          "r2": 1.0,
+          "relative_l2": 0.0,
+          "exact_values": 100,
+          "reference_min": 0.003536224365234375,
+          "reference_max": 2.50341796875
+        },
+        "motion_object": {
+          "count": 100,
+          "mse": 0.0,
+          "rmse": 0.0,
+          "mae": 0.0,
+          "max_absolute_error": 0.0,
+          "p95_absolute_error": 0.0,
+          "bias_test_minus_reference": 0.0,
+          "pearson_r": 1.0,
+          "r2": 1.0,
+          "relative_l2": 0.0,
+          "exact_values": 100,
+          "reference_min": 0.043853759765625,
+          "reference_max": 2.90478515625
+        },
+        "motion_dynamics": {
+          "count": 100,
+          "mse": 0.0,
+          "rmse": 0.0,
+          "mae": 0.0,
+          "max_absolute_error": 0.0,
+          "p95_absolute_error": 0.0,
+          "bias_test_minus_reference": 0.0,
+          "pearson_r": 1.0,
+          "r2": 1.0,
+          "relative_l2": 0.0,
+          "exact_values": 100,
+          "reference_min": 0.012119293212890625,
+          "reference_max": 2.296875
+        }
+      },
+      "global": {
+        "count": 300,
+        "mse": 0.0,
+        "rmse": 0.0,
+        "mae": 0.0,
+        "max_absolute_error": 0.0,
+        "p95_absolute_error": 0.0,
+        "bias_test_minus_reference": 0.0,
+        "pearson_r": 1.0,
+        "r2": 1.0,
+        "relative_l2": 0.0,
+        "exact_values": 300,
+        "reference_min": 0.003536224365234375,
+        "reference_max": 2.90478515625
+      },
+      "pixel_hash_matches": null,
+      "threshold_changes": {
+        "static": 0,
+        "violent": 0
+      },
+      "threshold_positive_counts": {
+        "static": {
+          "reference": 2,
+          "test": 2
+        },
+        "violent": {
+          "reference": 0,
+          "test": 0
+        }
+      },
+      "clips_with_any_threshold_change": 0,
+      "clips_all_scores_exact": 100
+    },
+    "gpu_best_vs_gpu_original": {
+      "reference": "gpu_original",
+      "test": "gpu_best",
+      "per_score": {
+        "motion_camera": {
+          "count": 100,
+          "mse": 0.0,
+          "rmse": 0.0,
+          "mae": 0.0,
+          "max_absolute_error": 0.0,
+          "p95_absolute_error": 0.0,
+          "bias_test_minus_reference": 0.0,
+          "pearson_r": 1.0,
+          "r2": 1.0,
+          "relative_l2": 0.0,
+          "exact_values": 100,
+          "reference_min": 0.0035219192504882812,
+          "reference_max": 2.50634765625
+        },
+        "motion_object": {
+          "count": 100,
+          "mse": 0.0,
+          "rmse": 0.0,
+          "mae": 0.0,
+          "max_absolute_error": 0.0,
+          "p95_absolute_error": 0.0,
+          "bias_test_minus_reference": 0.0,
+          "pearson_r": 1.0,
+          "r2": 1.0,
+          "relative_l2": 0.0,
+          "exact_values": 100,
+          "reference_min": 0.0425262451171875,
+          "reference_max": 2.90478515625
+        },
+        "motion_dynamics": {
+          "count": 100,
+          "mse": 0.0,
+          "rmse": 0.0,
+          "mae": 0.0,
+          "max_absolute_error": 0.0,
+          "p95_absolute_error": 0.0,
+          "bias_test_minus_reference": 0.0,
+          "pearson_r": 1.0,
+          "r2": 1.0,
+          "relative_l2": 0.0,
+          "exact_values": 100,
+          "reference_min": 0.012073516845703125,
+          "reference_max": 2.2998046875
+        }
+      },
+      "global": {
+        "count": 300,
+        "mse": 0.0,
+        "rmse": 0.0,
+        "mae": 0.0,
+        "max_absolute_error": 0.0,
+        "p95_absolute_error": 0.0,
+        "bias_test_minus_reference": 0.0,
+        "pearson_r": 1.0,
+        "r2": 1.0,
+        "relative_l2": 0.0,
+        "exact_values": 300,
+        "reference_min": 0.0035219192504882812,
+        "reference_max": 2.90478515625
+      },
+      "pixel_hash_matches": 100,
+      "threshold_changes": {
+        "static": 0,
+        "violent": 0
+      },
+      "threshold_positive_counts": {
+        "static": {
+          "reference": 2,
+          "test": 2
+        },
+        "violent": {
+          "reference": 0,
+          "test": 0
+        }
+      },
+      "clips_with_any_threshold_change": 0,
+      "clips_all_scores_exact": 100
+    },
+    "npu_fifo_vs_npu_original": {
+      "reference": "npu_original",
+      "test": "npu_fifo",
+      "per_score": {
+        "motion_camera": {
+          "count": 100,
+          "mse": 0.0,
+          "rmse": 0.0,
+          "mae": 0.0,
+          "max_absolute_error": 0.0,
+          "p95_absolute_error": 0.0,
+          "bias_test_minus_reference": 0.0,
+          "pearson_r": 1.0,
+          "r2": 1.0,
+          "relative_l2": 0.0,
+          "exact_values": 100,
+          "reference_min": 0.003536224365234375,
+          "reference_max": 2.50341796875
+        },
+        "motion_object": {
+          "count": 100,
+          "mse": 0.0,
+          "rmse": 0.0,
+          "mae": 0.0,
+          "max_absolute_error": 0.0,
+          "p95_absolute_error": 0.0,
+          "bias_test_minus_reference": 0.0,
+          "pearson_r": 1.0,
+          "r2": 1.0,
+          "relative_l2": 0.0,
+          "exact_values": 100,
+          "reference_min": 0.043853759765625,
+          "reference_max": 2.90478515625
+        },
+        "motion_dynamics": {
+          "count": 100,
+          "mse": 0.0,
+          "rmse": 0.0,
+          "mae": 0.0,
+          "max_absolute_error": 0.0,
+          "p95_absolute_error": 0.0,
+          "bias_test_minus_reference": 0.0,
+          "pearson_r": 1.0,
+          "r2": 1.0,
+          "relative_l2": 0.0,
+          "exact_values": 100,
+          "reference_min": 0.012119293212890625,
+          "reference_max": 2.296875
+        }
+      },
+      "global": {
+        "count": 300,
+        "mse": 0.0,
+        "rmse": 0.0,
+        "mae": 0.0,
+        "max_absolute_error": 0.0,
+        "p95_absolute_error": 0.0,
+        "bias_test_minus_reference": 0.0,
+        "pearson_r": 1.0,
+        "r2": 1.0,
+        "relative_l2": 0.0,
+        "exact_values": 300,
+        "reference_min": 0.003536224365234375,
+        "reference_max": 2.90478515625
+      },
+      "pixel_hash_matches": null,
+      "threshold_changes": {
+        "static": 0,
+        "violent": 0
+      },
+      "threshold_positive_counts": {
+        "static": {
+          "reference": 2,
+          "test": 2
+        },
+        "violent": {
+          "reference": 0,
+          "test": 0
+        }
+      },
+      "clips_with_any_threshold_change": 0,
+      "clips_all_scores_exact": 100
+    }
+  }
+}

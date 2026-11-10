@@ -1,0 +1,1305 @@
+{
+  "date": "2026-11-10",
+  "input_cohort": {
+    "clips": 100,
+    "source_videos": 10,
+    "total_clip_seconds": 323.29640302624165,
+    "clip_duration_range_s": [
+      0.68,
+      13.52
+    ],
+    "resolution": "720P to 4K",
+    "codec": "H.264 High 4:4:4 Predictive, gbrp, lossless",
+    "audio": false,
+    "private_cohort_not_distributed": true
+  },
+  "gpu_original_serial_wall_s": 240.7514665480703,
+  "gpu_best": {
+    "name": "full100-best",
+    "workers": 4,
+    "pinned": false,
+    "count": 100,
+    "pool_ready_s": 5.163878881372511,
+    "request_wall_s": 53.199967216234654,
+    "clips_per_s": 1.879700406459719,
+    "prep_wall_sum_s": 196.8655241485685,
+    "prep_cpu_sum_s": 401.88580937900014,
+    "gpu_consumer_wait_s": 50.46362754376605,
+    "inference_sum_s": 2.0900661633349955,
+    "peak_allocated_bytes": 1510286848,
+    "peak_reserved_bytes": 1893728256,
+    "final_allocated_bytes": 471003136,
+    "sampled_peak_pss_kib": 9016644,
+    "sampled_peak_rss_kib": 10042372,
+    "input_hash_matches": 100,
+    "max_absolute_error": {
+      "motion_camera": 0.0,
+      "motion_object": 0.0,
+      "motion_dynamics": 0.0
+    },
+    "threshold_changes": 0,
+    "max_inflight": 8,
+    "workers_exited": true
+  },
+  "npu_release_abba": [
+    {
+      "name": "01-release-base-A1",
+      "config": {
+        "workers": 8,
+        "decoder_threads": 2,
+        "order": "fifo",
+        "reuse_metadata": false,
+        "inplace_normalize": false,
+        "head_fast": false,
+        "persistent_amp": false
+      },
+      "count": 100,
+      "request_wall_s": 47.39459630602505,
+      "clips_per_s": 2.1099451792838138,
+      "wait_s": 43.973055092967115,
+      "inference_sum_s": 3.3060357625363395,
+      "input_matches": 100,
+      "max_absolute_error": {
+        "motion_camera": 0.0,
+        "motion_object": 0.0,
+        "motion_dynamics": 0.0
+      },
+      "peak_allocated_bytes": 1958581760,
+      "peak_reserved_bytes": 3170893824,
+      "final_allocated_bytes": 461544448,
+      "peak_pss_kib": 33895146,
+      "accuracy_exact": true
+    },
+    {
+      "name": "02-release-best-B1",
+      "config": {
+        "workers": 16,
+        "decoder_threads": 4,
+        "order": "lpt",
+        "reuse_metadata": true,
+        "inplace_normalize": false,
+        "head_fast": false,
+        "persistent_amp": false
+      },
+      "count": 100,
+      "request_wall_s": 12.962440149043687,
+      "clips_per_s": 7.714596854464749,
+      "wait_s": 9.276132706203498,
+      "inference_sum_s": 3.564825154375285,
+      "input_matches": 100,
+      "max_absolute_error": {
+        "motion_camera": 0.0,
+        "motion_object": 0.0,
+        "motion_dynamics": 0.0
+      },
+      "peak_allocated_bytes": 1957632000,
+      "peak_reserved_bytes": 2875195392,
+      "final_allocated_bytes": 461544448,
+      "peak_pss_kib": 35783485,
+      "accuracy_exact": true
+    },
+    {
+      "name": "03-release-best-B2",
+      "config": {
+        "workers": 16,
+        "decoder_threads": 4,
+        "order": "lpt",
+        "reuse_metadata": true,
+        "inplace_normalize": false,
+        "head_fast": false,
+        "persistent_amp": false
+      },
+      "count": 100,
+      "request_wall_s": 12.337881747051142,
+      "clips_per_s": 8.105119018821918,
+      "wait_s": 8.676054566982202,
+      "inference_sum_s": 3.5444143798667938,
+      "input_matches": 100,
+      "max_absolute_error": {
+        "motion_camera": 0.0,
+        "motion_object": 0.0,
+        "motion_dynamics": 0.0
+      },
+      "peak_allocated_bytes": 1957632000,
+      "peak_reserved_bytes": 2875195392,
+      "final_allocated_bytes": 461544448,
+      "peak_pss_kib": 56193307,
+      "accuracy_exact": true
+    },
+    {
+      "name": "04-release-base-A2",
+      "config": {
+        "workers": 8,
+        "decoder_threads": 2,
+        "order": "fifo",
+        "reuse_metadata": false,
+        "inplace_normalize": false,
+        "head_fast": false,
+        "persistent_amp": false
+      },
+      "count": 100,
+      "request_wall_s": 47.09697037702426,
+      "clips_per_s": 2.1232788266309353,
+      "wait_s": 43.7543094814755,
+      "inference_sum_s": 3.2303903937572613,
+      "input_matches": 100,
+      "max_absolute_error": {
+        "motion_camera": 0.0,
+        "motion_object": 0.0,
+        "motion_dynamics": 0.0
+      },
+      "peak_allocated_bytes": 1958581760,
+      "peak_reserved_bytes": 3170893824,
+      "final_allocated_bytes": 461544448,
+      "peak_pss_kib": 36554584,
+      "accuracy_exact": true
+    }
+  ],
+  "npu_release_comparison": {
+    "baseline_median_s": 47.24578334152466,
+    "accepted_median_s": 12.650160948047414,
+    "gain": 0.7322478313756924,
+    "both_pairs_won": true
+  },
+  "npu_offline_entry": {
+    "count": 100,
+    "config": {
+      "workers": 16,
+      "decoder_threads": 4,
+      "order": "lpt",
+      "reuse_metadata": true,
+      "inplace_normalize": false,
+      "head_fast": false,
+      "persistent_amp": false
+    },
+    "model_load_s": 16.047683286014944,
+    "pool_ready_s": 11.431458898936398,
+    "warmup_s": 10.298161611077376,
+    "request_wall_s": 12.77498599991668,
+    "clips_per_s": 7.827797228165433,
+    "model_initializations": 1,
+    "all_pixel_hashes_exact": true,
+    "all_scores_exact": true,
+    "sampled_peak_pss_kib": 35706693,
+    "peak_allocated_bytes": 1954589696,
+    "peak_reserved_bytes": 3191865344
+  },
+  "npu_fifo_entry": {
+    "count": 100,
+    "config": {
+      "workers": 16,
+      "decoder_threads": 4,
+      "order": "fifo",
+      "reuse_metadata": true,
+      "inplace_normalize": false,
+      "head_fast": false,
+      "persistent_amp": false
+    },
+    "model_load_s": 15.656269941013306,
+    "pool_ready_s": 11.551490477984771,
+    "warmup_s": 10.142567991977558,
+    "request_wall_s": 19.529823782038875,
+    "clips_per_s": 5.120373901784392,
+    "model_initializations": 1,
+    "all_pixel_hashes_exact": true,
+    "all_scores_exact": true,
+    "sampled_peak_pss_kib": 39403090,
+    "peak_allocated_bytes": 1954589696,
+    "peak_reserved_bytes": 3191865344
+  },
+  "candidate_decisions": [
+    {
+      "feature": "cpu_workers",
+      "accepted": true,
+      "accuracy_exact": true,
+      "median_gain": 0.35612088821730326,
+      "both_pairs_won": true,
+      "control_runs": [
+        "01-workers8-control1",
+        "04-workers8-control2"
+      ],
+      "candidate_runs": [
+        "03-workers16-candidate1",
+        "05-workers-best-candidate2"
+      ],
+      "before": {
+        "workers": 8,
+        "decoder_threads": 2,
+        "order": "fifo",
+        "reuse_metadata": false,
+        "inplace_normalize": false,
+        "head_fast": false,
+        "persistent_amp": false
+      },
+      "candidate": {
+        "workers": 16,
+        "decoder_threads": 2,
+        "order": "fifo",
+        "reuse_metadata": false,
+        "inplace_normalize": false,
+        "head_fast": false,
+        "persistent_amp": false
+      },
+      "reason": "keep"
+    },
+    {
+      "feature": "decoder_threads",
+      "accepted": true,
+      "accuracy_exact": true,
+      "median_gain": 0.3839247312887488,
+      "both_pairs_won": true,
+      "control_runs": [
+        "06-decoder_threads-A1",
+        "09-decoder_threads-A2"
+      ],
+      "candidate_runs": [
+        "07-decoder_threads-B1",
+        "08-decoder_threads-B2"
+      ],
+      "before": {
+        "workers": 16,
+        "decoder_threads": 2,
+        "order": "fifo",
+        "reuse_metadata": false,
+        "inplace_normalize": false,
+        "head_fast": false,
+        "persistent_amp": false
+      },
+      "candidate": {
+        "workers": 16,
+        "decoder_threads": 4,
+        "order": "fifo",
+        "reuse_metadata": false,
+        "inplace_normalize": false,
+        "head_fast": false,
+        "persistent_amp": false
+      },
+      "reason": "keep"
+    },
+    {
+      "feature": "longest_first",
+      "accepted": true,
+      "accuracy_exact": true,
+      "median_gain": 0.3279510132279899,
+      "both_pairs_won": true,
+      "control_runs": [
+        "10-longest_first-A1",
+        "13-longest_first-A2"
+      ],
+      "candidate_runs": [
+        "11-longest_first-B1",
+        "12-longest_first-B2"
+      ],
+      "before": {
+        "workers": 16,
+        "decoder_threads": 4,
+        "order": "fifo",
+        "reuse_metadata": false,
+        "inplace_normalize": false,
+        "head_fast": false,
+        "persistent_amp": false
+      },
+      "candidate": {
+        "workers": 16,
+        "decoder_threads": 4,
+        "order": "lpt",
+        "reuse_metadata": false,
+        "inplace_normalize": false,
+        "head_fast": false,
+        "persistent_amp": false
+      },
+      "reason": "keep"
+    },
+    {
+      "feature": "reuse_metadata",
+      "accepted": true,
+      "accuracy_exact": true,
+      "median_gain": 0.030820965780647303,
+      "both_pairs_won": true,
+      "control_runs": [
+        "14-reuse_metadata-A1",
+        "17-reuse_metadata-A2"
+      ],
+      "candidate_runs": [
+        "15-reuse_metadata-B1",
+        "16-reuse_metadata-B2"
+      ],
+      "before": {
+        "workers": 16,
+        "decoder_threads": 4,
+        "order": "lpt",
+        "reuse_metadata": false,
+        "inplace_normalize": false,
+        "head_fast": false,
+        "persistent_amp": false
+      },
+      "candidate": {
+        "workers": 16,
+        "decoder_threads": 4,
+        "order": "lpt",
+        "reuse_metadata": true,
+        "inplace_normalize": false,
+        "head_fast": false,
+        "persistent_amp": false
+      },
+      "reason": "keep"
+    },
+    {
+      "feature": "inplace_normalize",
+      "accepted": false,
+      "accuracy_exact": true,
+      "median_gain": 0.009847379001414969,
+      "both_pairs_won": true,
+      "control_runs": [
+        "18-inplace_normalize-A1",
+        "21-inplace_normalize-A2"
+      ],
+      "candidate_runs": [
+        "19-inplace_normalize-B1",
+        "20-inplace_normalize-B2"
+      ],
+      "before": {
+        "workers": 16,
+        "decoder_threads": 4,
+        "order": "lpt",
+        "reuse_metadata": true,
+        "inplace_normalize": false,
+        "head_fast": false,
+        "persistent_amp": false
+      },
+      "candidate": {
+        "workers": 16,
+        "decoder_threads": 4,
+        "order": "lpt",
+        "reuse_metadata": true,
+        "inplace_normalize": true,
+        "head_fast": false,
+        "persistent_amp": false
+      },
+      "reason": "gain_not_reproducible_or_below_noise_gate"
+    },
+    {
+      "feature": "head_fast",
+      "accepted": false,
+      "accuracy_exact": true,
+      "median_gain": 0.01190436543805895,
+      "both_pairs_won": true,
+      "control_runs": [
+        "22-head_fast-A1",
+        "25-head_fast-A2"
+      ],
+      "candidate_runs": [
+        "23-head_fast-B1",
+        "24-head_fast-B2"
+      ],
+      "before": {
+        "workers": 16,
+        "decoder_threads": 4,
+        "order": "lpt",
+        "reuse_metadata": true,
+        "inplace_normalize": false,
+        "head_fast": false,
+        "persistent_amp": false
+      },
+      "candidate": {
+        "workers": 16,
+        "decoder_threads": 4,
+        "order": "lpt",
+        "reuse_metadata": true,
+        "inplace_normalize": false,
+        "head_fast": true,
+        "persistent_amp": false
+      },
+      "reason": "gain_not_reproducible_or_below_noise_gate"
+    },
+    {
+      "feature": "persistent_amp",
+      "accepted": false,
+      "accuracy_exact": true,
+      "median_gain": 0.00989635787478893,
+      "both_pairs_won": true,
+      "control_runs": [
+        "26-persistent_amp-A1",
+        "29-persistent_amp-A2"
+      ],
+      "candidate_runs": [
+        "27-persistent_amp-B1",
+        "28-persistent_amp-B2"
+      ],
+      "before": {
+        "workers": 16,
+        "decoder_threads": 4,
+        "order": "lpt",
+        "reuse_metadata": true,
+        "inplace_normalize": false,
+        "head_fast": false,
+        "persistent_amp": false
+      },
+      "candidate": {
+        "workers": 16,
+        "decoder_threads": 4,
+        "order": "lpt",
+        "reuse_metadata": true,
+        "inplace_normalize": false,
+        "head_fast": false,
+        "persistent_amp": true
+      },
+      "reason": "gain_not_reproducible_or_below_noise_gate"
+    }
+  ],
+  "candidate_rounds": [
+    {
+      "name": "01-workers8-control1",
+      "config": {
+        "workers": 8,
+        "decoder_threads": 2,
+        "order": "fifo",
+        "reuse_metadata": false,
+        "inplace_normalize": false,
+        "head_fast": false,
+        "persistent_amp": false
+      },
+      "count": 100,
+      "request_wall_s": 47.81135994102806,
+      "clips_per_s": 2.0915531397421647,
+      "wait_s": 44.44649987772573,
+      "inference_sum_s": 3.252095547039062,
+      "input_matches": 100,
+      "max_absolute_error": {
+        "motion_camera": 0.0,
+        "motion_object": 0.0,
+        "motion_dynamics": 0.0
+      },
+      "peak_allocated_bytes": 1958581760,
+      "peak_reserved_bytes": 3170893824,
+      "final_allocated_bytes": 461544448,
+      "peak_pss_kib": 29230378,
+      "accuracy_exact": true
+    },
+    {
+      "name": "02-workers12-candidate1",
+      "config": {
+        "workers": 12,
+        "decoder_threads": 2,
+        "order": "fifo",
+        "reuse_metadata": false,
+        "inplace_normalize": false,
+        "head_fast": false,
+        "persistent_amp": false
+      },
+      "count": 100,
+      "request_wall_s": 36.2175103869522,
+      "clips_per_s": 2.761095363308744,
+      "wait_s": 32.79295575548895,
+      "inference_sum_s": 3.3104338496923447,
+      "input_matches": 100,
+      "max_absolute_error": {
+        "motion_camera": 0.0,
+        "motion_object": 0.0,
+        "motion_dynamics": 0.0
+      },
+      "peak_allocated_bytes": 1958581760,
+      "peak_reserved_bytes": 3170893824,
+      "final_allocated_bytes": 461544448,
+      "peak_pss_kib": 31192330,
+      "accuracy_exact": true
+    },
+    {
+      "name": "03-workers16-candidate1",
+      "config": {
+        "workers": 16,
+        "decoder_threads": 2,
+        "order": "fifo",
+        "reuse_metadata": false,
+        "inplace_normalize": false,
+        "head_fast": false,
+        "persistent_amp": false
+      },
+      "count": 100,
+      "request_wall_s": 30.802687847055495,
+      "clips_per_s": 3.2464699345891415,
+      "wait_s": 27.225755142397247,
+      "inference_sum_s": 3.456974423956126,
+      "input_matches": 100,
+      "max_absolute_error": {
+        "motion_camera": 0.0,
+        "motion_object": 0.0,
+        "motion_dynamics": 0.0
+      },
+      "peak_allocated_bytes": 1958581760,
+      "peak_reserved_bytes": 3170893824,
+      "final_allocated_bytes": 461544448,
+      "peak_pss_kib": 34205569,
+      "accuracy_exact": true
+    },
+    {
+      "name": "04-workers8-control2",
+      "config": {
+        "workers": 8,
+        "decoder_threads": 2,
+        "order": "fifo",
+        "reuse_metadata": false,
+        "inplace_normalize": false,
+        "head_fast": false,
+        "persistent_amp": false
+      },
+      "count": 100,
+      "request_wall_s": 47.27624493499752,
+      "clips_per_s": 2.115227216914013,
+      "wait_s": 44.022048021666706,
+      "inference_sum_s": 3.1437301501864567,
+      "input_matches": 100,
+      "max_absolute_error": {
+        "motion_camera": 0.0,
+        "motion_object": 0.0,
+        "motion_dynamics": 0.0
+      },
+      "peak_allocated_bytes": 1958581760,
+      "peak_reserved_bytes": 3170893824,
+      "final_allocated_bytes": 461544448,
+      "peak_pss_kib": 36969828,
+      "accuracy_exact": true
+    },
+    {
+      "name": "05-workers-best-candidate2",
+      "config": {
+        "workers": 16,
+        "decoder_threads": 2,
+        "order": "fifo",
+        "reuse_metadata": false,
+        "inplace_normalize": false,
+        "head_fast": false,
+        "persistent_amp": false
+      },
+      "count": 100,
+      "request_wall_s": 30.422234722063877,
+      "clips_per_s": 3.2870695040517357,
+      "wait_s": 26.972427640575916,
+      "inference_sum_s": 3.336580722243525,
+      "input_matches": 100,
+      "max_absolute_error": {
+        "motion_camera": 0.0,
+        "motion_object": 0.0,
+        "motion_dynamics": 0.0
+      },
+      "peak_allocated_bytes": 1958581760,
+      "peak_reserved_bytes": 3170893824,
+      "final_allocated_bytes": 461544448,
+      "peak_pss_kib": 50230301,
+      "accuracy_exact": true
+    },
+    {
+      "name": "06-decoder_threads-A1",
+      "config": {
+        "workers": 16,
+        "decoder_threads": 2,
+        "order": "fifo",
+        "reuse_metadata": false,
+        "inplace_normalize": false,
+        "head_fast": false,
+        "persistent_amp": false
+      },
+      "count": 100,
+      "request_wall_s": 29.75814148900099,
+      "clips_per_s": 3.3604249121861773,
+      "wait_s": 26.28112900815904,
+      "inference_sum_s": 3.362824804498814,
+      "input_matches": 100,
+      "max_absolute_error": {
+        "motion_camera": 0.0,
+        "motion_object": 0.0,
+        "motion_dynamics": 0.0
+      },
+      "peak_allocated_bytes": 1958581760,
+      "peak_reserved_bytes": 3170893824,
+      "final_allocated_bytes": 461544448,
+      "peak_pss_kib": 52790977,
+      "accuracy_exact": true
+    },
+    {
+      "name": "07-decoder_threads-B1",
+      "config": {
+        "workers": 16,
+        "decoder_threads": 4,
+        "order": "fifo",
+        "reuse_metadata": false,
+        "inplace_normalize": false,
+        "head_fast": false,
+        "persistent_amp": false
+      },
+      "count": 100,
+      "request_wall_s": 18.224159252014942,
+      "clips_per_s": 5.4872215841147,
+      "wait_s": 14.51961437461432,
+      "inference_sum_s": 3.582124863518402,
+      "input_matches": 100,
+      "max_absolute_error": {
+        "motion_camera": 0.0,
+        "motion_object": 0.0,
+        "motion_dynamics": 0.0
+      },
+      "peak_allocated_bytes": 1958581760,
+      "peak_reserved_bytes": 3170893824,
+      "final_allocated_bytes": 461544448,
+      "peak_pss_kib": 51968185,
+      "accuracy_exact": true
+    },
+    {
+      "name": "08-decoder_threads-B2",
+      "config": {
+        "workers": 16,
+        "decoder_threads": 4,
+        "order": "fifo",
+        "reuse_metadata": false,
+        "inplace_normalize": false,
+        "head_fast": false,
+        "persistent_amp": false
+      },
+      "count": 100,
+      "request_wall_s": 18.70299169002101,
+      "clips_per_s": 5.346738193406516,
+      "wait_s": 15.158370066899806,
+      "inference_sum_s": 3.427566683385521,
+      "input_matches": 100,
+      "max_absolute_error": {
+        "motion_camera": 0.0,
+        "motion_object": 0.0,
+        "motion_dynamics": 0.0
+      },
+      "peak_allocated_bytes": 1958581760,
+      "peak_reserved_bytes": 3170893824,
+      "final_allocated_bytes": 461544448,
+      "peak_pss_kib": 52993824,
+      "accuracy_exact": true
+    },
+    {
+      "name": "09-decoder_threads-A2",
+      "config": {
+        "workers": 16,
+        "decoder_threads": 2,
+        "order": "fifo",
+        "reuse_metadata": false,
+        "inplace_normalize": false,
+        "head_fast": false,
+        "persistent_amp": false
+      },
+      "count": 100,
+      "request_wall_s": 30.18120816105511,
+      "clips_per_s": 3.3133199793186834,
+      "wait_s": 26.811888512573205,
+      "inference_sum_s": 3.258577994303778,
+      "input_matches": 100,
+      "max_absolute_error": {
+        "motion_camera": 0.0,
+        "motion_object": 0.0,
+        "motion_dynamics": 0.0
+      },
+      "peak_allocated_bytes": 1958581760,
+      "peak_reserved_bytes": 3170893824,
+      "final_allocated_bytes": 461544448,
+      "peak_pss_kib": 51833750,
+      "accuracy_exact": true
+    },
+    {
+      "name": "10-longest_first-A1",
+      "config": {
+        "workers": 16,
+        "decoder_threads": 4,
+        "order": "fifo",
+        "reuse_metadata": false,
+        "inplace_normalize": false,
+        "head_fast": false,
+        "persistent_amp": false
+      },
+      "count": 100,
+      "request_wall_s": 17.880440521985292,
+      "clips_per_s": 5.592703371991466,
+      "wait_s": 14.289366728509776,
+      "inference_sum_s": 3.4736695789033547,
+      "input_matches": 100,
+      "max_absolute_error": {
+        "motion_camera": 0.0,
+        "motion_object": 0.0,
+        "motion_dynamics": 0.0
+      },
+      "peak_allocated_bytes": 1958581760,
+      "peak_reserved_bytes": 3170893824,
+      "final_allocated_bytes": 461544448,
+      "peak_pss_kib": 53011981,
+      "accuracy_exact": true
+    },
+    {
+      "name": "11-longest_first-B1",
+      "config": {
+        "workers": 16,
+        "decoder_threads": 4,
+        "order": "lpt",
+        "reuse_metadata": false,
+        "inplace_normalize": false,
+        "head_fast": false,
+        "persistent_amp": false
+      },
+      "count": 100,
+      "request_wall_s": 12.140885930042714,
+      "clips_per_s": 8.236631212599505,
+      "wait_s": 8.67310037673451,
+      "inference_sum_s": 3.352896331809461,
+      "input_matches": 100,
+      "max_absolute_error": {
+        "motion_camera": 0.0,
+        "motion_object": 0.0,
+        "motion_dynamics": 0.0
+      },
+      "peak_allocated_bytes": 1957632000,
+      "peak_reserved_bytes": 2875195392,
+      "final_allocated_bytes": 461544448,
+      "peak_pss_kib": 58657517,
+      "accuracy_exact": true
+    },
+    {
+      "name": "12-longest_first-B2",
+      "config": {
+        "workers": 16,
+        "decoder_threads": 4,
+        "order": "lpt",
+        "reuse_metadata": false,
+        "inplace_normalize": false,
+        "head_fast": false,
+        "persistent_amp": false
+      },
+      "count": 100,
+      "request_wall_s": 12.058102648938075,
+      "clips_per_s": 8.293178695804745,
+      "wait_s": 8.515323739033192,
+      "inference_sum_s": 3.425550563377328,
+      "input_matches": 100,
+      "max_absolute_error": {
+        "motion_camera": 0.0,
+        "motion_object": 0.0,
+        "motion_dynamics": 0.0
+      },
+      "peak_allocated_bytes": 1957632000,
+      "peak_reserved_bytes": 2875195392,
+      "final_allocated_bytes": 461544448,
+      "peak_pss_kib": 61595443,
+      "accuracy_exact": true
+    },
+    {
+      "name": "13-longest_first-A2",
+      "config": {
+        "workers": 16,
+        "decoder_threads": 4,
+        "order": "fifo",
+        "reuse_metadata": false,
+        "inplace_normalize": false,
+        "head_fast": false,
+        "persistent_amp": false
+      },
+      "count": 100,
+      "request_wall_s": 18.127334290998988,
+      "clips_per_s": 5.516530913740271,
+      "wait_s": 14.617432540399022,
+      "inference_sum_s": 3.392608737689443,
+      "input_matches": 100,
+      "max_absolute_error": {
+        "motion_camera": 0.0,
+        "motion_object": 0.0,
+        "motion_dynamics": 0.0
+      },
+      "peak_allocated_bytes": 1958581760,
+      "peak_reserved_bytes": 3170893824,
+      "final_allocated_bytes": 461544448,
+      "peak_pss_kib": 58375056,
+      "accuracy_exact": true
+    },
+    {
+      "name": "14-reuse_metadata-A1",
+      "config": {
+        "workers": 16,
+        "decoder_threads": 4,
+        "order": "lpt",
+        "reuse_metadata": false,
+        "inplace_normalize": false,
+        "head_fast": false,
+        "persistent_amp": false
+      },
+      "count": 100,
+      "request_wall_s": 11.924298282014206,
+      "clips_per_s": 8.38623771688378,
+      "wait_s": 8.387439236743376,
+      "inference_sum_s": 3.4231649645371363,
+      "input_matches": 100,
+      "max_absolute_error": {
+        "motion_camera": 0.0,
+        "motion_object": 0.0,
+        "motion_dynamics": 0.0
+      },
+      "peak_allocated_bytes": 1957632000,
+      "peak_reserved_bytes": 2875195392,
+      "final_allocated_bytes": 461544448,
+      "peak_pss_kib": 63320092,
+      "accuracy_exact": true
+    },
+    {
+      "name": "15-reuse_metadata-B1",
+      "config": {
+        "workers": 16,
+        "decoder_threads": 4,
+        "order": "lpt",
+        "reuse_metadata": true,
+        "inplace_normalize": false,
+        "head_fast": false,
+        "persistent_amp": false
+      },
+      "count": 100,
+      "request_wall_s": 11.658807632979006,
+      "clips_per_s": 8.577206447521466,
+      "wait_s": 8.06747295265086,
+      "inference_sum_s": 3.4739192192209885,
+      "input_matches": 100,
+      "max_absolute_error": {
+        "motion_camera": 0.0,
+        "motion_object": 0.0,
+        "motion_dynamics": 0.0
+      },
+      "peak_allocated_bytes": 1957632000,
+      "peak_reserved_bytes": 2875195392,
+      "final_allocated_bytes": 461544448,
+      "peak_pss_kib": 63731428,
+      "accuracy_exact": true
+    },
+    {
+      "name": "16-reuse_metadata-B2",
+      "config": {
+        "workers": 16,
+        "decoder_threads": 4,
+        "order": "lpt",
+        "reuse_metadata": true,
+        "inplace_normalize": false,
+        "head_fast": false,
+        "persistent_amp": false
+      },
+      "count": 100,
+      "request_wall_s": 11.667167164967395,
+      "clips_per_s": 8.571060874165461,
+      "wait_s": 8.10960126761347,
+      "inference_sum_s": 3.4422208990436047,
+      "input_matches": 100,
+      "max_absolute_error": {
+        "motion_camera": 0.0,
+        "motion_object": 0.0,
+        "motion_dynamics": 0.0
+      },
+      "peak_allocated_bytes": 1957632000,
+      "peak_reserved_bytes": 2875195392,
+      "final_allocated_bytes": 461544448,
+      "peak_pss_kib": 61694935,
+      "accuracy_exact": true
+    },
+    {
+      "name": "17-reuse_metadata-A2",
+      "config": {
+        "workers": 16,
+        "decoder_threads": 4,
+        "order": "lpt",
+        "reuse_metadata": false,
+        "inplace_normalize": false,
+        "head_fast": false,
+        "persistent_amp": false
+      },
+      "count": 100,
+      "request_wall_s": 12.143468327005394,
+      "clips_per_s": 8.234879632996929,
+      "wait_s": 8.63457515614573,
+      "inference_sum_s": 3.396326187881641,
+      "input_matches": 100,
+      "max_absolute_error": {
+        "motion_camera": 0.0,
+        "motion_object": 0.0,
+        "motion_dynamics": 0.0
+      },
+      "peak_allocated_bytes": 1957632000,
+      "peak_reserved_bytes": 2875195392,
+      "final_allocated_bytes": 461544448,
+      "peak_pss_kib": 62865061,
+      "accuracy_exact": true
+    },
+    {
+      "name": "18-inplace_normalize-A1",
+      "config": {
+        "workers": 16,
+        "decoder_threads": 4,
+        "order": "lpt",
+        "reuse_metadata": true,
+        "inplace_normalize": false,
+        "head_fast": false,
+        "persistent_amp": false
+      },
+      "count": 100,
+      "request_wall_s": 11.744595441967249,
+      "clips_per_s": 8.514554672753356,
+      "wait_s": 8.148102957406081,
+      "inference_sum_s": 3.481627249275334,
+      "input_matches": 100,
+      "max_absolute_error": {
+        "motion_camera": 0.0,
+        "motion_object": 0.0,
+        "motion_dynamics": 0.0
+      },
+      "peak_allocated_bytes": 1957632000,
+      "peak_reserved_bytes": 2875195392,
+      "final_allocated_bytes": 461544448,
+      "peak_pss_kib": 63223009,
+      "accuracy_exact": true
+    },
+    {
+      "name": "19-inplace_normalize-B1",
+      "config": {
+        "workers": 16,
+        "decoder_threads": 4,
+        "order": "lpt",
+        "reuse_metadata": true,
+        "inplace_normalize": true,
+        "head_fast": false,
+        "persistent_amp": false
+      },
+      "count": 100,
+      "request_wall_s": 11.577685157069936,
+      "clips_per_s": 8.637305181764663,
+      "wait_s": 7.952648900216445,
+      "inference_sum_s": 3.50951558991801,
+      "input_matches": 100,
+      "max_absolute_error": {
+        "motion_camera": 0.0,
+        "motion_object": 0.0,
+        "motion_dynamics": 0.0
+      },
+      "peak_allocated_bytes": 1957632000,
+      "peak_reserved_bytes": 2875195392,
+      "final_allocated_bytes": 461544448,
+      "peak_pss_kib": 61644905,
+      "accuracy_exact": true
+    },
+    {
+      "name": "20-inplace_normalize-B2",
+      "config": {
+        "workers": 16,
+        "decoder_threads": 4,
+        "order": "lpt",
+        "reuse_metadata": true,
+        "inplace_normalize": true,
+        "head_fast": false,
+        "persistent_amp": false
+      },
+      "count": 100,
+      "request_wall_s": 11.519945280975662,
+      "clips_per_s": 8.680596787655112,
+      "wait_s": 7.944998267921619,
+      "inference_sum_s": 3.4602822983870283,
+      "input_matches": 100,
+      "max_absolute_error": {
+        "motion_camera": 0.0,
+        "motion_object": 0.0,
+        "motion_dynamics": 0.0
+      },
+      "peak_allocated_bytes": 1957632000,
+      "peak_reserved_bytes": 2875195392,
+      "final_allocated_bytes": 461544448,
+      "peak_pss_kib": 61770518,
+      "accuracy_exact": true
+    },
+    {
+      "name": "21-inplace_normalize-A2",
+      "config": {
+        "workers": 16,
+        "decoder_threads": 4,
+        "order": "lpt",
+        "reuse_metadata": true,
+        "inplace_normalize": false,
+        "head_fast": false,
+        "persistent_amp": false
+      },
+      "count": 100,
+      "request_wall_s": 11.582748189917766,
+      "clips_per_s": 8.633529656376824,
+      "wait_s": 7.972646609414369,
+      "inference_sum_s": 3.486746715847403,
+      "input_matches": 100,
+      "max_absolute_error": {
+        "motion_camera": 0.0,
+        "motion_object": 0.0,
+        "motion_dynamics": 0.0
+      },
+      "peak_allocated_bytes": 1957632000,
+      "peak_reserved_bytes": 2875195392,
+      "final_allocated_bytes": 461544448,
+      "peak_pss_kib": 63323695,
+      "accuracy_exact": true
+    },
+    {
+      "name": "22-head_fast-A1",
+      "config": {
+        "workers": 16,
+        "decoder_threads": 4,
+        "order": "lpt",
+        "reuse_metadata": true,
+        "inplace_normalize": false,
+        "head_fast": false,
+        "persistent_amp": false
+      },
+      "count": 100,
+      "request_wall_s": 11.627629110007547,
+      "clips_per_s": 8.600205515149518,
+      "wait_s": 8.100326117244549,
+      "inference_sum_s": 3.410114553407766,
+      "input_matches": 100,
+      "max_absolute_error": {
+        "motion_camera": 0.0,
+        "motion_object": 0.0,
+        "motion_dynamics": 0.0
+      },
+      "peak_allocated_bytes": 1957632000,
+      "peak_reserved_bytes": 2875195392,
+      "final_allocated_bytes": 461544448,
+      "peak_pss_kib": 64225857,
+      "accuracy_exact": true
+    },
+    {
+      "name": "23-head_fast-B1",
+      "config": {
+        "workers": 16,
+        "decoder_threads": 4,
+        "order": "lpt",
+        "reuse_metadata": true,
+        "inplace_normalize": false,
+        "head_fast": true,
+        "persistent_amp": false
+      },
+      "count": 100,
+      "request_wall_s": 11.553695761947893,
+      "clips_per_s": 8.65523915986693,
+      "wait_s": 8.277329187141731,
+      "inference_sum_s": 3.158413521829061,
+      "input_matches": 100,
+      "max_absolute_error": {
+        "motion_camera": 0.0,
+        "motion_object": 0.0,
+        "motion_dynamics": 0.0
+      },
+      "peak_allocated_bytes": 1957632000,
+      "peak_reserved_bytes": 2875195392,
+      "final_allocated_bytes": 461544448,
+      "peak_pss_kib": 68545470,
+      "accuracy_exact": true
+    },
+    {
+      "name": "24-head_fast-B2",
+      "config": {
+        "workers": 16,
+        "decoder_threads": 4,
+        "order": "lpt",
+        "reuse_metadata": true,
+        "inplace_normalize": false,
+        "head_fast": true,
+        "persistent_amp": false
+      },
+      "count": 100,
+      "request_wall_s": 11.513587894965895,
+      "clips_per_s": 8.685389898636478,
+      "wait_s": 8.248828055569902,
+      "inference_sum_s": 3.1427294268505648,
+      "input_matches": 100,
+      "max_absolute_error": {
+        "motion_camera": 0.0,
+        "motion_object": 0.0,
+        "motion_dynamics": 0.0
+      },
+      "peak_allocated_bytes": 1957632000,
+      "peak_reserved_bytes": 2875195392,
+      "final_allocated_bytes": 461544448,
+      "peak_pss_kib": 70929660,
+      "accuracy_exact": true
+    },
+    {
+      "name": "25-head_fast-A2",
+      "config": {
+        "workers": 16,
+        "decoder_threads": 4,
+        "order": "lpt",
+        "reuse_metadata": true,
+        "inplace_normalize": false,
+        "head_fast": false,
+        "persistent_amp": false
+      },
+      "count": 100,
+      "request_wall_s": 11.71756426000502,
+      "clips_per_s": 8.534196850221257,
+      "wait_s": 8.232338771806099,
+      "inference_sum_s": 3.3682791924802586,
+      "input_matches": 100,
+      "max_absolute_error": {
+        "motion_camera": 0.0,
+        "motion_object": 0.0,
+        "motion_dynamics": 0.0
+      },
+      "peak_allocated_bytes": 1957632000,
+      "peak_reserved_bytes": 2875195392,
+      "final_allocated_bytes": 461544448,
+      "peak_pss_kib": 75949284,
+      "accuracy_exact": true
+    },
+    {
+      "name": "26-persistent_amp-A1",
+      "config": {
+        "workers": 16,
+        "decoder_threads": 4,
+        "order": "lpt",
+        "reuse_metadata": true,
+        "inplace_normalize": false,
+        "head_fast": false,
+        "persistent_amp": false
+      },
+      "count": 100,
+      "request_wall_s": 11.786912705050781,
+      "clips_per_s": 8.483985798685795,
+      "wait_s": 8.278496895451099,
+      "inference_sum_s": 3.39432685112115,
+      "input_matches": 100,
+      "max_absolute_error": {
+        "motion_camera": 0.0,
+        "motion_object": 0.0,
+        "motion_dynamics": 0.0
+      },
+      "peak_allocated_bytes": 1957632000,
+      "peak_reserved_bytes": 2875195392,
+      "final_allocated_bytes": 461544448,
+      "peak_pss_kib": 68786541,
+      "accuracy_exact": true
+    },
+    {
+      "name": "27-persistent_amp-B1",
+      "config": {
+        "workers": 16,
+        "decoder_threads": 4,
+        "order": "lpt",
+        "reuse_metadata": true,
+        "inplace_normalize": false,
+        "head_fast": false,
+        "persistent_amp": true
+      },
+      "count": 100,
+      "request_wall_s": 11.652712896000594,
+      "clips_per_s": 8.58169259746558,
+      "wait_s": 8.450351441977546,
+      "inference_sum_s": 3.089604964130558,
+      "input_matches": 100,
+      "max_absolute_error": {
+        "motion_camera": 0.0,
+        "motion_object": 0.0,
+        "motion_dynamics": 0.0
+      },
+      "peak_allocated_bytes": 2024058368,
+      "peak_reserved_bytes": 2875195392,
+      "final_allocated_bytes": 461544448,
+      "peak_pss_kib": 72711165,
+      "accuracy_exact": true
+    },
+    {
+      "name": "28-persistent_amp-B2",
+      "config": {
+        "workers": 16,
+        "decoder_threads": 4,
+        "order": "lpt",
+        "reuse_metadata": true,
+        "inplace_normalize": false,
+        "head_fast": false,
+        "persistent_amp": true
+      },
+      "count": 100,
+      "request_wall_s": 11.628381431102753,
+      "clips_per_s": 8.599649107873882,
+      "wait_s": 8.410406376002356,
+      "inference_sum_s": 3.104022011742927,
+      "input_matches": 100,
+      "max_absolute_error": {
+        "motion_camera": 0.0,
+        "motion_object": 0.0,
+        "motion_dynamics": 0.0
+      },
+      "peak_allocated_bytes": 2024058368,
+      "peak_reserved_bytes": 2875195392,
+      "final_allocated_bytes": 461544448,
+      "peak_pss_kib": 74277710,
+      "accuracy_exact": true
+    },
+    {
+      "name": "29-persistent_amp-A2",
+      "config": {
+        "workers": 16,
+        "decoder_threads": 4,
+        "order": "lpt",
+        "reuse_metadata": true,
+        "inplace_normalize": false,
+        "head_fast": false,
+        "persistent_amp": false
+      },
+      "count": 100,
+      "request_wall_s": 11.726882554939948,
+      "clips_per_s": 8.527415494399662,
+      "wait_s": 8.121076067443937,
+      "inference_sum_s": 3.480867693084292,
+      "input_matches": 100,
+      "max_absolute_error": {
+        "motion_camera": 0.0,
+        "motion_object": 0.0,
+        "motion_dynamics": 0.0
+      },
+      "peak_allocated_bytes": 1957632000,
+      "peak_reserved_bytes": 2875195392,
+      "final_allocated_bytes": 461544448,
+      "peak_pss_kib": 78186330,
+      "accuracy_exact": true
+    },
+    {
+      "name": "30-final-accepted",
+      "config": {
+        "workers": 16,
+        "decoder_threads": 4,
+        "order": "lpt",
+        "reuse_metadata": true,
+        "inplace_normalize": false,
+        "head_fast": false,
+        "persistent_amp": false
+      },
+      "count": 100,
+      "request_wall_s": 11.653516398975626,
+      "clips_per_s": 8.581100894901581,
+      "wait_s": 8.042760742362589,
+      "inference_sum_s": 3.4966009901836514,
+      "input_matches": 100,
+      "max_absolute_error": {
+        "motion_camera": 0.0,
+        "motion_object": 0.0,
+        "motion_dynamics": 0.0
+      },
+      "peak_allocated_bytes": 1957632000,
+      "peak_reserved_bytes": 2875195392,
+      "final_allocated_bytes": 461544448,
+      "peak_pss_kib": 72944758,
+      "accuracy_exact": true
+    }
+  ],
+  "model_only_replay": {
+    "gpu_single_s": 1.3983064787462354,
+    "npu_single_s": 2.794530428946018,
+    "scope": "100 clips, frozen identical uint8, includes transfers and synchronization; historical records"
+  },
+  "validation": {
+    "rounds": 36,
+    "clip_processing_executions": 3600,
+    "pixel_hashes_exact": true,
+    "npu_scores_exact_to_original_npu": true
+  },
+  "timing_scope": "Resident model, ready CPU pools and warmups excluded; OS file cache uncontrolled. Not cold start or HTTP SLA.",
+  "hardware_comparison_caveat": "GPU CPU4/decoder2 vs NPU CPU16/decoder4 is a system-pipeline comparison, not an isolated accelerator speedup."
+}

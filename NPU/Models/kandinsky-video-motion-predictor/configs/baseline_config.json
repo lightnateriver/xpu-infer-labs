@@ -1,0 +1,9 @@
+{
+  "workers": 8,
+  "decoder_threads": 2,
+  "order": "fifo",
+  "reuse_metadata": false,
+  "inplace_normalize": false,
+  "head_fast": false,
+  "persistent_amp": false
+}

@@ -1,0 +1,12 @@
+{
+  "workers": 4,
+  "decoder_threads": 2,
+  "order": "fifo",
+  "pinned": false,
+  "worker_torch_threads": 4,
+  "max_inflight": 8,
+  "gpu_batch_size": 1,
+  "max_segments": 16,
+  "fp16_autocast": true,
+  "note": "Descriptive measured profile; historical benchmark selects the fastest screened configuration."
+}

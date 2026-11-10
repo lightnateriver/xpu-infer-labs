@@ -1,0 +1,8 @@
+numpy
+imageio[pyav]
+huggingface-hub>=0.32.2
+safetensors
+einops
+transformers>=4.38.0
+timm==1.0.15
+easydict==1.13

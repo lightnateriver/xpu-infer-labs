@@ -1,0 +1,19 @@
+{
+  "repository": "https://github.com/gen-ai-team/kandinsky-video-tools",
+  "revision": "eb114b74588ac15a466b6d81e76fa30c5548f8b9",
+  "files": {
+    "models/__init__.py": "9789bd629468f9a4738504eb7f888f95b4a3748f4b010e76575bef603a844716",
+    "models/video_motion_predictor/backbone.py": "72f3443ea0ebee0a48de991e14de09cc38caba5dc4fdda042befc7c4695671ed",
+    "models/video_motion_predictor/model.py": "dca20be16a109853eb549b22f495a4e7a3b7e782f92213d5cfdc9a0088667678",
+    "models/video_motion_predictor/modeling_config.py": "2f18fc8dd23bea2f5a32e20a43a3aae2eb05b34838ea4870633e75d10fadbd47",
+    "models/video_motion_predictor/modeling_videomaev2.py": "50616c7d989526ede9e31d24848e91e8388ca68e3c46e59bfe02b11054653a63",
+    "models/video_motion_predictor/transformer_head.py": "ddb697fe8c053718d61d87b9a14e7b529253f0873b61502caba331b8630c5d92",
+    "models/video_motion_predictor/__init__.py": "0ed7f7a78b0283e9c5d2d33e6a1712e92da4dd68697040791440fbbd51e97274",
+    "models/video_motion_predictor/configs/base.json": "93a5bd6b2750eb1c10f2e16c5671c3f96c256b5cd57a0b12d03fe3952dbc3caa"
+  },
+  "weights": {
+    "config.json": "3b39110fb705a8691239f456fd019a0479aab0156889476b402743d5d7ffdae0",
+    "model.safetensors": "ef1d40c93b6479ebc7379c357a9c2328b4c1b848edaecc7e2cb427d78b78bc9f"
+  },
+  "model_id": "ai-forever/kandinsky-video-motion-predictor"
+}

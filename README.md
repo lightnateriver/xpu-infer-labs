@@ -21,3 +21,12 @@ Qwen 视频嵌入交接包含 runtime、配置、环境来源、普通文件/TAR
 ## Qwen 视频嵌入本次重测
 
 GPU CPU32 7.065 条/秒，NPU-SPG v1 8.110 条/秒，后者为前者的 **114.79%**。同输入余弦 ≥0.99 通过，旧库 0.99 阈值零跨线未通过；跨架构像素也非字节一致。[完整报告与限制](NPU/Models/qwen3-vl-embedding-2b/reports/retest-20261108.md)。
+
+## Motion Predictor · 2026-11-10
+
+[RTX 5090交接](GPU/Models/kandinsky-video-motion-predictor/README.md) ·
+[Ascend 910B1交接](NPU/Models/kandinsky-video-motion-predictor/README.md)。
+同100条物理MP4：GPU历史CPU4配置1.880条/秒，NPU优化后CPU16×decoder4、离线LPT为7.905条/秒。
+这是不同CPU配置的整机流水线比较；不代表NPU模型计算快4.21倍，GPU尚未使用同套新调度重测。
+最优NPU相对GPU整体MSE5.91317e-6、RMSE0.00243170；相对原NPU误差为0。
+样本哈希100/100一致，阈值0/100翻转；无violent阳性、无人工运动真值，限制见各报告。

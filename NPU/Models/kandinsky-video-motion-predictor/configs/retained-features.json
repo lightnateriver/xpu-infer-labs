@@ -1,0 +1,8 @@
+{
+  "reuse_metadata": true,
+  "inplace_normalize": false,
+  "head_fast": false,
+  "persistent_amp": false,
+  "decoder_threads4": true,
+  "lpt": true
+}

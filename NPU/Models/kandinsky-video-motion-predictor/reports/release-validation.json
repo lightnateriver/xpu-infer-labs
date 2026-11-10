@@ -1,0 +1,16 @@
+{
+  "python_files_parsed": 16,
+  "relative_links_checked": 26,
+  "cpu_tests_per_device": 8,
+  "private_100_clip_metrics_replayed": true,
+  "public_aggregate_metrics_exact": true,
+  "sensitive_scan_passed": true,
+  "media_and_weights_excluded": true,
+  "source_parity": true,
+  "upstream_files_verified": 8,
+  "source_files": 47,
+  "validation_date": "2026-11-10",
+  "publication_hardware_inference_rerun": false,
+  "upstream_fetch_hashes_verified": 8,
+  "cli_scope": "compare_scores, fetch_model_source, verify_weights; NPU run_motion and GPU benchmark/make_reference help"
+}

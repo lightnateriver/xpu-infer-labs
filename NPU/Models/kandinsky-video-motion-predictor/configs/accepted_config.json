@@ -1,0 +1,9 @@
+{
+  "workers": 16,
+  "decoder_threads": 4,
+  "order": "lpt",
+  "reuse_metadata": true,
+  "inplace_normalize": false,
+  "head_fast": false,
+  "persistent_amp": false
+}
